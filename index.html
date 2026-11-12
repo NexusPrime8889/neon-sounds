@@ -11,19 +11,15 @@
 
 <style>
 :root{
-  --bg:#080b19;
-  --panel:#17172d;
-  --panel2:#20203b;
+  --bg:#090a19;
+  --panel:#19182f;
   --blue:#00b7ff;
   --cyan:#00efff;
   --green:#72ff19;
-  --purple:#862dff;
   --text:#fff;
   --muted:#c0bdd9;
-  --black:#05050b;
 }
 
-/* BASE */
 *{box-sizing:border-box}
 
 body{
@@ -31,19 +27,15 @@ body{
   min-height:100vh;
   color:var(--text);
   font-family:Montserrat,sans-serif;
-  background-color:#090a19;
-  background-image:
-    radial-gradient(circle at 8px 8px,#373451 2px,transparent 2.8px),
-    radial-gradient(circle at 8px 8px,#17172d 5px,transparent 5.8px);
-  background-size:16px 16px;
+  background-color:var(--bg);
+  background-image:radial-gradient(circle at 5px 5px,#393651 1.7px,transparent 2.5px);
+  background-size:12px 12px;
 }
 
 /* TEXTURA STUDS */
 .studs{
-  background-color:#17172d;
-  background-image:
-    radial-gradient(circle at 4px 4px,#45415f 1.7px,transparent 2.4px),
-    radial-gradient(circle at 4px 4px,#101020 4px,transparent 4.8px);
+  background-color:#19182f;
+  background-image:radial-gradient(circle at 5px 5px,#393651 1.7px,transparent 2.5px);
   background-size:12px 12px;
 }
 
@@ -59,61 +51,46 @@ header{
   flex-wrap:wrap;
   gap:15px;
   background:#090b19;
-  border-bottom:4px solid var(--black);
+  border-bottom:4px solid #000;
   box-shadow:0 4px 0 var(--blue),0 8px 25px #00b7ff30;
 }
 
 .logo{
   font-size:21px;
   font-weight:900;
-  letter-spacing:-1px;
-  text-shadow:2px 2px 0 #000;
+  text-shadow:2px 2px #000;
 }
 
 .logo span{color:var(--cyan)}
 
 nav{display:flex;gap:10px;flex-wrap:wrap}
 
-/* BOTONES */
-button,.button{
+button{
   font-family:Montserrat,sans-serif;
   font-weight:900;
-  color:#fff;
+  color:white;
   cursor:pointer;
-  border:3px solid var(--black);
+  border:3px solid #05050b;
   border-radius:5px;
   padding:11px 16px;
-  background:linear-gradient(180deg,#168bff,#0056c9);
-  box-shadow:0 4px 0 #002d68,0 0 12px #00b7ff35;
-  text-shadow:1px 2px 0 #000;
-  transition:.15s;
+  background:linear-gradient(#168bff,#0056c9);
+  box-shadow:0 4px 0 #002d68;
+  text-shadow:1px 2px #000;
 }
 
-button:hover,.button:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.2);
-}
+button:hover{filter:brightness(1.2);transform:translateY(-2px)}
 
-button:active{transform:translateY(2px);box-shadow:none}
+main{max-width:1250px;margin:auto;padding:30px 20px}
 
-/* CONTENIDO */
-main{
-  max-width:1250px;
-  margin:auto;
-  padding:30px 20px;
-}
-
+/* HERO */
 .hero{
   text-align:center;
   padding:40px 15px;
   margin-bottom:30px;
-  border:4px solid var(--black);
-  border-radius:8px;
-  background-color:#15152b;
-  background-image:
-    radial-gradient(circle at 5px 5px,#42405c 1.8px,transparent 2.5px),
-    linear-gradient(135deg,#17172e,#10182c);
-  background-size:12px 12px,auto;
+  border:4px solid #000;
+  background-color:#17172e;
+  background-image:radial-gradient(circle at 5px 5px,#42405c 1.8px,transparent 2.5px);
+  background-size:12px 12px;
   box-shadow:0 5px 0 var(--blue),0 12px 30px #0008;
 }
 
@@ -121,28 +98,20 @@ main{
   font-size:clamp(30px,6vw,55px);
   font-weight:900;
   margin:0 0 12px;
-  letter-spacing:-2px;
-  color:#fff;
+  color:white;
   -webkit-text-stroke:1px #000;
-  text-shadow:
-    3px 3px 0 #000,
-    5px 5px 0 #003d75,
-    0 0 20px #00b7ff;
+  text-shadow:3px 3px #000,5px 5px #003d75,0 0 20px var(--blue);
 }
 
 .hero h1 span{color:var(--cyan)}
 
 .hero p{
   color:#e0e6ff;
-  font-weight:700;
+  font-weight:800;
   text-shadow:1px 2px #000;
-  line-height:1.7;
 }
 
-.searchbar{
-  width:min(650px,100%);
-  margin:25px auto 0;
-}
+.searchbar{width:min(650px,100%);margin:25px auto 0}
 
 input,select{
   width:100%;
@@ -154,7 +123,6 @@ input,select{
   font-family:Montserrat,sans-serif;
   font-weight:700;
   outline:none;
-  box-shadow:inset 0 3px 5px #0008;
 }
 
 input:focus,select:focus{
@@ -173,32 +141,11 @@ input::placeholder{color:#aaa8c7}
   margin:35px 0 20px;
   font-size:19px;
   font-weight:900;
-  color:#fff;
+  color:white;
   background:linear-gradient(90deg,#006bc9,#123e91);
   border:3px solid #05050b;
-  border-radius:4px;
   box-shadow:0 4px 0 #001d49,0 0 12px #00b7ff50;
   text-shadow:2px 2px #000;
-}
-
-/* CATEGORIAS */
-.categories{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:25px;
-}
-
-.category{
-  background:#24213f;
-  border-color:#05050b;
-}
-
-.category.active{
-  background:linear-gradient(180deg,#7dff29,#36b900);
-  color:#071300;
-  text-shadow:none;
-  box-shadow:0 4px 0 #176400;
 }
 
 /* JUEGOS */
@@ -213,7 +160,6 @@ input::placeholder{color:#aaa8c7}
   cursor:pointer;
   background:#19182f;
   border:4px solid #05050b;
-  border-radius:5px;
   box-shadow:0 4px 0 #003b75,0 0 12px #00b7ff25;
   transition:.2s;
 }
@@ -223,24 +169,26 @@ input::placeholder{color:#aaa8c7}
   border-color:var(--blue);
 }
 
-.game img{
+.game-cover{
   width:100%;
-  height:110px;
+  height:125px;
   display:block;
   object-fit:cover;
+  background:#20203b;
 }
 
-.game .game-icon{
-  height:110px;
+.game-fallback{
+  width:100%;
+  height:125px;
   display:grid;
   place-items:center;
-  font-size:42px;
+  font-size:45px;
   background-color:#1b1a35;
   background-image:radial-gradient(circle,#45415f 1.5px,transparent 2px);
   background-size:10px 10px;
 }
 
-.game div:last-child{
+.game-name{
   padding:12px 7px;
   text-align:center;
   font-size:12px;
@@ -248,7 +196,24 @@ input::placeholder{color:#aaa8c7}
   text-shadow:2px 2px #000;
 }
 
-/* SONIDOS */
+/* CATEGORIAS */
+.categories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.category{background:#24213f}
+
+.category.active{
+  background:linear-gradient(#8aff30,#36b900);
+  color:#071300;
+  text-shadow:none;
+  box-shadow:0 4px 0 #176400;
+}
+
+/* BIBLIOTECA */
 .sounds{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
@@ -256,15 +221,11 @@ input::placeholder{color:#aaa8c7}
 }
 
 .sound{
-  position:relative;
-  overflow:hidden;
   padding:17px;
   background-color:#19182f;
-  background-image:
-    radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
+  background-image:radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
   background-size:11px 11px;
   border:4px solid #05050b;
-  border-radius:5px;
   box-shadow:0 4px 0 #004b91,0 0 14px #00b7ff20;
 }
 
@@ -277,22 +238,15 @@ input::placeholder{color:#aaa8c7}
 }
 
 .sound small{
-  display:inline-block;
   color:var(--cyan);
   font-weight:800;
-  text-shadow:1px 1px #000;
 }
 
-.sound audio{
-  width:100%;
-  margin-top:15px;
-  height:38px;
-}
+.sound audio{width:100%;margin-top:15px}
 
 .sound-actions{
   display:flex;
   justify-content:space-between;
-  gap:10px;
   margin-top:13px;
 }
 
@@ -303,19 +257,14 @@ input::placeholder{color:#aaa8c7}
   text-decoration:none;
 }
 
-.sound-actions a:hover{color:var(--green)}
-
-/* SUBIDAS */
+/* SUBIR */
 .upload-box{
-  position:relative;
   margin-top:45px;
   padding:25px;
   background-color:#19182f;
-  background-image:
-    radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
+  background-image:radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
   background-size:11px 11px;
   border:4px solid #05050b;
-  border-radius:6px;
   box-shadow:0 5px 0 var(--blue),0 0 25px #00b7ff25;
 }
 
@@ -325,10 +274,7 @@ input::placeholder{color:#aaa8c7}
   text-shadow:2px 2px #000;
 }
 
-.upload-box p{
-  color:var(--muted);
-  font-weight:600;
-}
+.upload-box p{color:var(--muted);font-weight:600}
 
 .form-grid{
   display:grid;
@@ -339,11 +285,10 @@ input::placeholder{color:#aaa8c7}
 .form-grid .full{grid-column:1/-1}
 
 .form-grid button{
-  background:linear-gradient(180deg,#8aff30,#38c500);
+  background:linear-gradient(#8aff30,#38c500);
   color:#071300;
   text-shadow:1px 1px #baff91;
   box-shadow:0 4px 0 #176400;
-  font-size:14px;
 }
 
 #status{
@@ -352,7 +297,6 @@ input::placeholder{color:#aaa8c7}
   font-weight:800;
   margin-top:16px;
   overflow-wrap:anywhere;
-  text-shadow:1px 1px #000;
 }
 
 .empty{
@@ -362,7 +306,6 @@ input::placeholder{color:#aaa8c7}
   font-weight:700;
   background:#15142a;
   border:3px solid #05050b;
-  border-radius:5px;
 }
 
 footer{
@@ -371,14 +314,12 @@ footer{
   color:#aaa8c7;
   font-size:12px;
   font-weight:700;
-  text-shadow:1px 1px #000;
 }
 
 @media(max-width:600px){
   header{justify-content:center}
   .form-grid{grid-template-columns:1fr}
   .form-grid .full{grid-column:auto}
-  .hero{padding:30px 12px}
 }
 </style>
 </head>
@@ -451,22 +392,49 @@ footer{
 
 </main>
 
-<footer>
-  NEON SOUND MARKET · ROBLOX SOUND COMMUNITY
-</footer>
+<footer>NEON SOUND MARKET · ROBLOX SOUND COMMUNITY</footer>
 
 <script>
 const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co";
 const SUPABASE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
-const BUCKET = "neon-sounds";    
+const BUCKET = "neon-sounds";
+
+/* PORTADAS DE LOS JUEGOS */
 const games = [
-  {name:"Steal an Egg", image:"steal-an-egg.png", placeId:107778070777162},
-  {name:"Steal a Brainrot", image:"steal-a-brainrot.webp"},
-  {name:"Murder Mystery 2", placeId:142823291},
-  {name:"Brookhaven", placeId:4924922222},
-  {name:"Adopt Me!", placeId:920587237},
-  {name:"Blox Fruits", placeId:2753915549},
-  {name:"Otros juegos", emoji:"🎮"}
+  {
+    name:"Steal an Egg",
+    image:"steal-an-egg.png",
+    emoji:"🥚"
+  },
+  {
+    name:"Steal a Brainrot",
+    image:"steal-a-brainrot.webp",
+    emoji:"🧠"
+  },
+  {
+    name:"Murder Mystery 2",
+    placeId:142823291,
+    emoji:"🔪"
+  },
+  {
+    name:"Brookhaven",
+    placeId:4924922222,
+    emoji:"🏡"
+  },
+  {
+    name:"Adopt Me!",
+    placeId:920587237,
+    emoji:"🐶"
+  },
+  {
+    name:"Blox Fruits",
+    placeId:2753915549,
+    emoji:"🍎"
+  },
+  {
+    name:"Otros juegos",
+    emoji:"🎮"
+  }
 ];
 
 let allSounds=[];
@@ -479,10 +447,6 @@ function headers(){
   };
 }
 
-function showStatus(message){
-  document.getElementById("status").textContent=message;
-}
-
 function textSlug(text){
   return text.normalize("NFD")
     .replace(/[\u0300-\u036f]/g,"")
@@ -492,6 +456,19 @@ function textSlug(text){
     .slice(0,50);
 }
 
+function showStatus(message){
+  document.getElementById("status").textContent=message;
+}
+
+/* PORTADA DE RESPALDO */
+function showFallback(container,emoji){
+  const fallback=document.createElement("div");
+  fallback.className="game-fallback";
+  fallback.textContent=emoji||"🎮";
+  container.replaceChildren(fallback);
+}
+
+/* CARGAR PORTADAS */
 function renderGames(){
   const root=document.getElementById("games");
   root.innerHTML="";
@@ -500,14 +477,49 @@ function renderGames(){
     const card=document.createElement("div");
     card.className="game";
 
-    const icon=document.createElement("div");
-    icon.className="game-icon";
-    icon.textContent=game.emoji;
-
     const name=document.createElement("div");
+    name.className="game-name";
     name.textContent=game.name;
 
-    card.append(icon,name);
+    const cover=document.createElement("img");
+    cover.className="game-cover";
+    cover.alt="Portada de "+game.name;
+    cover.loading="lazy";
+
+    card.appendChild(cover);
+    card.appendChild(name);
+
+    /* Imágenes guardadas en GitHub */
+    if(game.image){
+      cover.src=game.image;
+      cover.onerror=()=>showFallback(card,game.emoji);
+    }
+
+    /* Portadas obtenidas de Roblox */
+    else if(game.placeId){
+      showFallback(card,game.emoji);
+
+      fetch(
+        `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${game.placeId}&size=512x512&format=Png&isCircular=false`
+      )
+      .then(response=>{
+        if(!response.ok) throw new Error("Thumbnail no disponible");
+        return response.json();
+      })
+      .then(data=>{
+        const imageUrl=data.data?.[0]?.imageUrl;
+
+        if(imageUrl){
+          cover.src=imageUrl;
+          card.replaceChildren(cover,name);
+        }
+      })
+      .catch(error=>console.warn("Portada:",game.name,error));
+    }
+
+    else{
+      showFallback(card,game.emoji);
+    }
 
     card.onclick=()=>{
       selectedGame=game.name;
@@ -520,6 +532,7 @@ function renderGames(){
   });
 }
 
+/* CATEGORIAS */
 function renderCategories(){
   const root=document.getElementById("categories");
   root.innerHTML="";
@@ -539,22 +552,21 @@ function renderCategories(){
   });
 }
 
+/* LEER NOMBRE DE ARCHIVO */
 function parseFileName(name){
   const parts=name.split("--");
 
+  const gameSlug=parts.length>=3?parts[0]:"otros-juegos";
+  const matchedGame=games.find(g=>textSlug(g.name)===gameSlug);
+
   return {
-    game:parts.length>=3
-      ?parts[0].replace(/-/g," ")
-      :"Otros juegos",
-    rarity:parts.length>=3
-      ?parts[1]
-      :"Normal",
-    title:parts.length>=3
-      ?parts.slice(2).join("--")
-      :name
+    game:matchedGame?matchedGame.name:"Otros juegos",
+    rarity:parts.length>=3?parts[1]:"Normal",
+    title:parts.length>=3?parts.slice(2).join("--"):name
   };
 }
 
+/* CARGAR BIBLIOTECA */
 async function loadSounds(){
   try{
     const response=await fetch(
@@ -581,15 +593,15 @@ async function loadSounds(){
     const files=await response.json();
 
     allSounds=files
-      .filter(f=>f.name&&!f.name.startsWith("."))
-      .map(f=>{
-        const meta=parseFileName(f.name);
+      .filter(file=>file.name&&!file.name.startsWith("."))
+      .map(file=>{
+        const meta=parseFileName(file.name);
 
         return {
           ...meta,
-          file:f.name,
-          url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${f.name.split("/").map(encodeURIComponent).join("/")}`,
-          date:f.created_at||f.updated_at||""
+          file:file.name,
+          url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${file.name.split("/").map(encodeURIComponent).join("/")}`,
+          date:file.created_at||file.updated_at||""
         };
       });
 
@@ -603,6 +615,7 @@ async function loadSounds(){
   }
 }
 
+/* MOSTRAR SONIDOS */
 function renderSounds(){
   const root=document.getElementById("sounds");
   const query=document.getElementById("search").value.toLowerCase().trim();
@@ -653,6 +666,7 @@ function renderSounds(){
   });
 }
 
+/* SUBIR SONIDOS */
 async function uploadSound(){
   const name=document.getElementById("soundName").value.trim();
   const game=document.getElementById("gameSelect").value;
@@ -691,7 +705,7 @@ async function uploadSound(){
 
   try{
     const response=await fetch(
-      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${fileName.split("/").map(encodeURIComponent).join("/")}`,
+      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${encodeURIComponent(fileName)}`,
       {
         method:"POST",
         headers:{
@@ -720,66 +734,8 @@ async function uploadSound(){
   }
 }
 
-
-async function renderGames(){
-  const root=document.getElementById("games");
-  root.innerHTML="";
-
-  games.forEach(game=>{
-    const card=document.createElement("div");
-    card.className="game";
-
-    const image=document.createElement("img");
-    image.alt=game.name;
-    image.loading="lazy";
-
-    if(game.image){
-      image.src=game.image;
-    }else if(game.placeId){
-      fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${game.placeId}&size=512x512&format=Png&isCircular=false`)
-        .then(r=>r.json())
-        .then(data=>{
-          if(data.data?.[0]?.imageUrl){
-            image.src=data.data[0].imageUrl;
-          }
-        })
-        .catch(()=>{});
-    }else{
-      image.src="";
-      image.style.display="none";
-    }
-
-    image.onerror=()=>{
-      image.style.display="none";
-      const fallback=document.createElement("div");
-      fallback.className="game-icon";
-      fallback.textContent=game.emoji||"🎮";
-      card.insertBefore(fallback,name);
-    };
-
-    const name=document.createElement("div");
-    name.textContent=game.name;
-
-    if(game.image||game.placeId){
-      card.append(image,name);
-    }else{
-      const fallback=document.createElement("div");
-      fallback.className="game-icon";
-      fallback.textContent=game.emoji||"🎮";
-      card.append(fallback,name);
-    }
-
-    card.onclick=()=>{
-      selectedGame=game.name;
-      renderCategories();
-      renderSounds();
-      document.getElementById("library").scrollIntoView({behavior:"smooth"});
-    };
-
-    root.appendChild(card);
-  });
-}
-
+/* INICIAR */
+renderGames();
 renderCategories();
 loadSounds();
 </script>
