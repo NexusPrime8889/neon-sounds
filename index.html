@@ -15,117 +15,53 @@
   --panel:#171b30;
   --panel2:#222944;
   --blue:#00c8ff;
-  --purple:#8955ed;
   --green:#39f59b;
   --white:#fff;
   --muted:#aab4d0;
   --black:#03040a;
 }
-
-*{
-  box-sizing:border-box;
-  font-family:'Montserrat',sans-serif;
-}
-
+*{box-sizing:border-box;font-family:'Montserrat',sans-serif}
 body{
-  margin:0;
-  color:var(--white);
+  margin:0;color:var(--white);min-height:100vh;
   background-color:var(--bg);
   background-image:
     radial-gradient(circle at 8px 8px,#39445f 0 3px,transparent 3.7px),
-    radial-gradient(circle at 20px 20px,#222b43 0 3px,transparent 3.7px),
+    radial-gradient(circle at 24px 24px,#222b43 0 3px,transparent 3.7px),
     linear-gradient(135deg,#0b1020,#101025);
   background-size:32px 32px,32px 32px,100% 100%;
   background-attachment:fixed;
-  min-height:100vh;
 }
-
 header{
-  position:relative;
-  z-index:2;
-  padding:17px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:15px;
-  flex-wrap:wrap;
-  background-color:rgba(12,16,32,.94);
-  background-image:
-    radial-gradient(circle at 8px 8px,#34405d 0 3px,transparent 3.7px);
+  position:relative;z-index:2;padding:17px 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;
+  background-color:rgba(12,16,32,.96);
+  background-image:radial-gradient(circle at 8px 8px,#34405d 0 3px,transparent 3.7px);
   background-size:32px 32px;
   border-bottom:4px solid var(--black);
   box-shadow:0 5px 0 #000;
 }
-
-.logo{
-  font-size:23px;
-  font-weight:900;
-  letter-spacing:1px;
-}
+.logo{font-size:23px;font-weight:900;letter-spacing:1px}
 .logo span{color:var(--blue)}
-
-nav{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-}
-
+nav{display:flex;gap:10px;flex-wrap:wrap}
 button,.btn{
-  display:inline-block;
-  border:3px solid var(--black);
-  border-radius:11px;
-  padding:11px 15px;
-  color:white;
+  display:inline-block;border:3px solid var(--black);
+  border-radius:11px;padding:11px 15px;color:white;
   background-color:#252d49;
   background-image:radial-gradient(circle at 8px 8px,rgba(255,255,255,.12) 0 2px,transparent 2.7px);
-  background-size:24px 24px;
-  font-size:12px;
-  font-weight:900;
-  cursor:pointer;
-  text-decoration:none;
-  box-shadow:0 4px 0 var(--black);
+  background-size:24px 24px;font-size:12px;font-weight:900;
+  cursor:pointer;text-decoration:none;box-shadow:0 4px 0 var(--black);
   transition:.15s;
 }
-
-button:hover,.btn:hover{
-  transform:translateY(-2px);
-  filter:brightness(1.15);
-}
-
-button:active,.btn:active{
-  transform:translateY(2px);
-  box-shadow:0 1px 0 var(--black);
-}
-
-.primary{
-  background-color:#087cff;
-  background-image:radial-gradient(circle at 8px 8px,rgba(255,255,255,.22) 0 2px,transparent 2.7px);
-  color:#00111d;
-}
-
-.green{
-  background-color:#19c878;
-  color:#002415;
-}
-
+button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+button:active,.btn:active{transform:translateY(2px);box-shadow:0 1px 0 var(--black)}
+.primary{background-color:#087cff;color:#00111d}
+.green{background-color:#19c878;color:#002415}
 .purple{background-color:#783de0}
-
-main{
-  position:relative;
-  z-index:1;
-  max-width:1250px;
-  margin:auto;
-  padding:25px 18px 60px;
-}
-
+main{position:relative;z-index:1;max-width:1250px;margin:auto;padding:25px 18px 60px}
 .hero{
-  position:relative;
-  overflow:hidden;
-  text-align:center;
-  padding:38px 22px;
-  margin:12px 0 25px;
-  border:4px solid var(--black);
-  border-radius:22px;
+  text-align:center;padding:38px 22px;margin:12px 0 25px;
+  border:4px solid var(--black);border-radius:22px;
   background-color:#172443;
   background-image:
     radial-gradient(circle at 8px 8px,rgba(255,255,255,.13) 0 3px,transparent 3.7px),
@@ -133,164 +69,86 @@ main{
   background-size:32px 32px,100% 100%;
   box-shadow:0 7px 0 var(--black);
 }
-
-.hero h1{
-  font-size:clamp(28px,5vw,47px);
-  font-weight:900;
-  margin:0 0 12px;
-}
-
+.hero h1{font-size:clamp(28px,5vw,47px);font-weight:900;margin:0 0 12px}
 .hero h1 span{color:var(--blue)}
 .hero p{color:#d0d9ef;font-weight:700}
-
-.section-title{
-  font-size:22px;
-  font-weight:900;
-  margin:28px 0 15px;
-  text-shadow:2px 2px #000;
-}
-
-.panel,.game,.sound-card,.photo-card{
+.section-title{font-size:22px;font-weight:900;margin:28px 0 15px;text-shadow:2px 2px #000}
+.panel,.game,.sound-card,.photo-card,.play-card{
   background-color:rgba(25,30,53,.96);
-  background-image:
-    radial-gradient(circle at 8px 8px,rgba(135,154,195,.19) 0 2.5px,transparent 3.2px);
+  background-image:radial-gradient(circle at 8px 8px,rgba(135,154,195,.19) 0 2.5px,transparent 3.2px);
   background-size:32px 32px;
-  border:4px solid var(--black);
-  border-radius:16px;
+  border:4px solid var(--black);border-radius:16px;
   box-shadow:0 5px 0 var(--black);
 }
-
 .panel{padding:18px;margin-bottom:20px}
-
 input,select{
-  width:100%;
-  padding:13px;
-  border-radius:10px;
-  border:3px solid var(--black);
-  background-color:#0b1020;
-  color:white;
-  font-size:14px;
-  font-weight:700;
-  outline:none;
+  width:100%;padding:13px;border-radius:10px;
+  border:3px solid var(--black);background:#0b1020;
+  color:white;font-size:14px;font-weight:700;outline:none;
 }
-
 input:focus,select:focus{border-color:var(--blue)}
 input::placeholder{color:#929db9}
-
 .search{margin:10px 0 18px}
-
-.games{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+.games,.play-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
   gap:14px;
 }
-
-.game{
-  padding:10px;
-  text-align:center;
-  font-size:13px;
-  font-weight:900;
-  overflow:hidden;
-}
-
-.game img{
-  width:100%;
-  height:105px;
-  object-fit:cover;
-  border-radius:9px;
-  border:2px solid #05060c;
-  margin-bottom:8px;
-}
-
-.game .emoji{
-  height:105px;
-  display:grid;
-  place-items:center;
-  font-size:55px;
-}
-
+.game{padding:10px;text-align:center;font-size:13px;font-weight:900;overflow:hidden}
+.game img{width:100%;height:105px;object-fit:cover;border-radius:9px;border:2px solid #05060c;margin-bottom:8px}
+.game .emoji{height:105px;display:grid;place-items:center;font-size:55px}
 .sound-list,.photo-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
   gap:15px;
 }
-
-.sound-card,.photo-card{
-  padding:13px;
-  min-width:0;
-  overflow:hidden;
-}
-
-.sound-card h3,.photo-card h3{
-  font-size:14px;
-  font-weight:900;
-  overflow-wrap:anywhere;
-}
-
-.sound-card p,.photo-card p{
-  color:var(--muted);
-  font-size:12px;
-}
-
+.sound-card,.photo-card,.play-card{padding:13px;min-width:0;overflow:hidden}
+.sound-card h3,.photo-card h3,.play-card h3{font-size:14px;font-weight:900;overflow-wrap:anywhere}
+.sound-card p,.photo-card p,.play-card p{color:var(--muted);font-size:12px}
 audio{width:100%;margin:10px 0}
-
 .photo-card img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  background:#080b16;
-  border:3px solid var(--black);
-  border-radius:10px;
+  width:100%;height:190px;object-fit:cover;background:#080b16;
+  border:3px solid var(--black);border-radius:10px;
 }
-
-.photo-actions{
-  display:flex;
-  gap:8px;
-  margin-top:12px;
-}
-
+.photo-actions{display:flex;gap:8px;margin-top:12px}
 .photo-actions a{flex:1}
 .photo-actions button{width:100%;padding:10px 5px}
-
 .upload-area{
-  padding:17px;
-  margin-top:12px;
-  border:3px dashed var(--blue);
-  border-radius:13px;
-  background-color:rgba(4,14,30,.8);
+  padding:17px;margin-top:12px;border:3px dashed var(--blue);
+  border-radius:13px;background-color:rgba(4,14,30,.8);
   background-image:radial-gradient(circle at 8px 8px,rgba(0,200,255,.13) 0 2px,transparent 2.7px);
   background-size:32px 32px;
 }
-
 .upload-area button{margin-top:10px}
-
-.status{
-  margin-top:12px;
-  color:var(--green);
-  font-size:13px;
-  font-weight:800;
-  overflow-wrap:anywhere;
-}
-
+.status{margin-top:12px;color:var(--green);font-size:13px;font-weight:800;overflow-wrap:anywhere}
 .muted{color:var(--muted)}
 .hidden{display:none!important}
-
 .back{margin-bottom:15px}
-
+.play-card{
+  display:flex;flex-direction:column;justify-content:space-between;
+  min-height:220px;
+}
+.play-icon{
+  height:90px;display:grid;place-items:center;
+  font-size:53px;border-radius:10px;
+  background-color:#111a31;
+  background-image:radial-gradient(circle at 8px 8px,rgba(0,200,255,.2) 0 3px,transparent 3.7px);
+  background-size:32px 32px;
+  border:2px solid var(--black);
+}
+.play-card .btn{margin-top:10px;text-align:center}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin:15px 0}
+.categories a{font-size:11px}
+.notice{
+  border:2px solid #111;border-radius:12px;padding:13px;
+  background:rgba(0,0,0,.25);color:#d4ddf4;font-size:12px;
+  line-height:1.7;font-weight:600;
+}
 footer{
-  position:relative;
-  z-index:1;
-  text-align:center;
-  padding:25px;
-  color:#9ba7c4;
-  font-size:12px;
-  font-weight:700;
-  border-top:3px solid #03040a;
-  background-color:rgba(10,14,29,.9);
+  position:relative;z-index:1;text-align:center;padding:25px;
+  color:#9ba7c4;font-size:12px;font-weight:700;
+  border-top:3px solid #03040a;background-color:rgba(10,14,29,.9);
   background-image:radial-gradient(circle at 8px 8px,rgba(135,154,195,.18) 0 2.5px,transparent 3.2px);
   background-size:32px 32px;
 }
-
 @media(max-width:600px){
   header{justify-content:center;text-align:center}
   nav{justify-content:center}
@@ -300,45 +158,39 @@ footer{
 </head>
 
 <body>
-
 <header>
   <div class="logo">NEON <span>SOUND MARKET</span></div>
   <nav>
     <button onclick="showPage('home')">🔊 SONIDOS</button>
-    <button class="primary" onclick="showPage('photos')">📸 PHOTO MARKET</button>
+    <button onclick="showPage('photos')">📸 FOTOS</button>
+    <button class="primary" onclick="showPage('play')">🎮 NEON PLAY</button>
   </nav>
 </header>
 
 <main>
 
-<!-- PÁGINA DE SONIDOS -->
+<!-- SONIDOS -->
 <section id="homePage">
-
   <div class="hero">
     <h1>NEON <span>SOUND MARKET</span></h1>
     <p>LA BIBLIOTECA DE SONIDOS DE ROBLOX</p>
-    <button class="primary" onclick="showPage('photos')">📸 ENTRAR A PHOTO MARKET</button>
+    <button class="primary" onclick="showPage('photos')">📸 PHOTO MARKET</button>
+    <button class="green" onclick="showPage('play')">🎮 NEON PLAY</button>
   </div>
 
   <div class="section-title">🎮 JUEGOS</div>
   <div class="games" id="gamesGrid"></div>
 
   <div class="section-title">🔍 BUSCAR SONIDOS</div>
-  <input id="soundSearch" class="search"
-    placeholder="Buscar sonido, juego o rareza..."
-    oninput="renderSounds()">
+  <input id="soundSearch" class="search" placeholder="Buscar sonido, juego o rareza..." oninput="renderSounds()">
 
   <div class="section-title">🎧 BIBLIOTECA DE SONIDOS</div>
-  <div id="soundList" class="sound-list">
-    <p class="muted">Cargando sonidos...</p>
-  </div>
+  <div id="soundList" class="sound-list"><p class="muted">Cargando sonidos...</p></div>
 
   <div class="section-title">⬆️ SUBIR UN SONIDO</div>
   <div class="panel">
     <form id="soundForm">
-      <input id="soundTitle" placeholder="Nombre del sonido" maxlength="70" required>
-      <br><br>
-
+      <input id="soundTitle" placeholder="Nombre del sonido" maxlength="70" required><br><br>
       <select id="soundGame" required>
         <option value="">Selecciona un juego</option>
         <option>Steal an Egg</option>
@@ -348,52 +200,32 @@ footer{
         <option>Adopt Me</option>
         <option>Blox Fruits</option>
         <option>Otros juegos</option>
-      </select>
-      <br><br>
-
-      <input id="soundRarity" placeholder="Rareza o categoría (opcional)">
-      <br><br>
-
-      <input id="soundFile" type="file"
-        accept=".mp3,.wav,.ogg,.m4a,audio/*" required>
-
+      </select><br><br>
+      <input id="soundRarity" placeholder="Rareza o categoría (opcional)"><br><br>
+      <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*" required>
       <div class="upload-area">
         <button class="green" type="submit">⬆️ PUBLICAR SONIDO</button>
         <div id="soundStatus" class="status"></div>
       </div>
     </form>
   </div>
-
 </section>
 
-<!-- PÁGINA DE FOTOS -->
+<!-- FOTOS -->
 <section id="photosPage" class="hidden">
-
   <button class="back" onclick="showPage('home')">← VOLVER A SONIDOS</button>
-
   <div class="hero">
     <h1>NEON <span>PHOTO MARKET</span></h1>
     <p>SUBE, COMPARTE Y DESCARGA FOTOS</p>
   </div>
 
   <div class="section-title">📸 PUBLICAR UNA FOTO</div>
-
   <div class="panel">
     <form id="photoForm">
-      <input id="photoTitle" placeholder="Nombre de la foto"
-        maxlength="70" required>
-      <br><br>
-
-      <input id="photoFile" type="file"
-        accept="image/png,image/jpeg,image/webp,image/gif" required>
-
-      <p class="muted">
-        Formatos: PNG, JPG, JPEG, WEBP y GIF animado.
-        Tamaño máximo: 10 MB.
-      </p>
-
+      <input id="photoTitle" placeholder="Nombre de la foto" maxlength="70" required><br><br>
+      <input id="photoFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" required>
+      <p class="muted">PNG, JPG, JPEG, WEBP y GIF animado. Máximo 10 MB.</p>
       <div id="photoPreview"></div>
-
       <div class="upload-area">
         <button class="green" type="submit">📤 SUBIR FOTO</button>
         <div id="photoStatus" class="status"></div>
@@ -402,25 +234,98 @@ footer{
   </div>
 
   <div class="section-title">🌎 GALERÍA PÚBLICA</div>
+  <input id="photoSearch" class="search" placeholder="Buscar fotos..." oninput="renderPhotos()">
+  <div id="photoGrid" class="photo-grid"><p class="muted">Cargando fotos...</p></div>
+</section>
 
-  <input id="photoSearch" class="search"
-    placeholder="Buscar fotos..."
-    oninput="renderPhotos()">
+<!-- NEON PLAY -->
+<section id="playPage" class="hidden">
+  <button class="back" onclick="showPage('home')">← VOLVER A SONIDOS</button>
 
-  <div id="photoGrid" class="photo-grid">
-    <p class="muted">Cargando fotos...</p>
+  <div class="hero">
+    <h1>🎮 NEON <span>PLAY</span></h1>
+    <p>JUEGA ONLINE CON EL CATÁLOGO OFICIAL DE NOW.GG</p>
+    <a class="btn primary" href="https://now.gg/games.html" target="_blank" rel="noopener">
+      🌐 VER TODOS LOS JUEGOS
+    </a>
   </div>
 
+  <div class="section-title">🔥 JUEGOS DESTACADOS</div>
+  <div class="play-grid">
+
+    <article class="play-card">
+      <div class="play-icon">🧠</div>
+      <h3>ITALIAN BRAINROT: VERSUS</h3>
+      <p>Juego de enfrentamientos con personajes Italian Brainrot.</p>
+      <a class="btn primary" href="https://now.gg/apps/enes-i-k/10632/italian-brainrot-versus.html" target="_blank" rel="noopener">
+        ▶ JUGAR EN NOW.GG
+      </a>
+    </article>
+
+    <article class="play-card">
+      <div class="play-icon">💃</div>
+      <h3>FASHION RAVE: DRESSUP</h3>
+      <p>Juego de moda y personalización de atuendos.</p>
+      <a class="btn primary" href="https://now.gg/apps/monstera/51794/fashion-rave-dressup.html" target="_blank" rel="noopener">
+        ▶ JUGAR EN NOW.GG
+      </a>
+    </article>
+
+    <article class="play-card">
+      <div class="play-icon">🚀</div>
+      <h3>ORBITSWARM</h3>
+      <p>Juego de navegador con temática espacial y estrategia.</p>
+      <a class="btn primary" href="https://now.gg/apps/internal-h5/52178/orbitswarm.html" target="_blank" rel="noopener">
+        ▶ JUGAR EN NOW.GG
+      </a>
+    </article>
+
+    <article class="play-card">
+      <div class="play-icon">🍒</div>
+      <h3>PAPA CHERRY SAGA</h3>
+      <p>Juego de rompecabezas y combinación.</p>
+      <a class="btn primary" href="https://now.gg/apps/tataki-studio/8972/papa-cherry-saga.html" target="_blank" rel="noopener">
+        ▶ JUGAR EN NOW.GG
+      </a>
+    </article>
+
+    <article class="play-card">
+      <div class="play-icon">🔥</div>
+      <h3>FLAME KEEPER</h3>
+      <p>Aventura de acción disponible en el catálogo de now.gg.</p>
+      <a class="btn primary" href="https://now.gg/apps/npc-games/10806/flame-keeper.html" target="_blank" rel="noopener">
+        ▶ JUGAR EN NOW.GG
+      </a>
+    </article>
+
+  </div>
+
+  <div class="section-title">🕹️ EXPLORAR CATEGORÍAS</div>
+  <div class="panel">
+    <div class="categories">
+      <a class="btn purple" href="https://now.gg/games/browser.html" target="_blank" rel="noopener">🌐 BROWSER GAMES</a>
+      <a class="btn purple" href="https://now.gg/games/action.html" target="_blank" rel="noopener">⚔️ ACCIÓN</a>
+      <a class="btn purple" href="https://now.gg/games/multiplayer.html" target="_blank" rel="noopener">👥 MULTIJUGADOR</a>
+      <a class="btn purple" href="https://now.gg/games/rpg.html" target="_blank" rel="noopener">🐉 RPG</a>
+      <a class="btn purple" href="https://now.gg/games/sports.html" target="_blank" rel="noopener">⚽ DEPORTES</a>
+      <a class="btn purple" href="https://now.gg/games/pc.html" target="_blank" rel="noopener">💻 JUEGOS DE PC</a>
+    </div>
+    <div class="notice">
+      <strong>Información:</strong> Los botones abren las páginas oficiales de now.gg en otra pestaña.
+      La disponibilidad de cada juego puede cambiar. NEON PLAY no aloja ni controla esos juegos.
+    </div>
+  </div>
 </section>
+
 </main>
 
 <footer>
-  NEON SOUND MARKET · NEON PHOTO MARKET
+  NEON SOUND MARKET · NEON PHOTO MARKET · NEON PLAY
   <br>COMUNIDAD ROBLOX
 </footer>
 
 <script>
-/* CONFIGURACIÓN SUPABASE */
+/* SUPABASE */
 const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co";
 const SUPABASE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
 const BUCKET = "neon-sounds";
@@ -434,58 +339,25 @@ let sounds = [];
 let photos = [];
 
 const games = [
-  {
-    name:"Steal an Egg",
-    image:"steal-an-egg.png",
-    emoji:"🥚"
-  },
-  {
-    name:"Steal a Brainrot",
-    image:"steal-a-brainrot.webp",
-    emoji:"🧠"
-  },
-  {
-    name:"Murder Mystery 2",
-    placeId:"142823291",
-    emoji:"🔪"
-  },
-  {
-    name:"Brookhaven",
-    placeId:"4924922222",
-    emoji:"🏡"
-  },
-  {
-    name:"Adopt Me",
-    placeId:"920587237",
-    emoji:"🐶"
-  },
-  {
-    name:"Blox Fruits",
-    placeId:"2753915549",
-    emoji:"🍎"
-  },
-  {
-    name:"Otros juegos",
-    emoji:"🎮"
-  }
+  {name:"Steal an Egg",image:"steal-an-egg.png",emoji:"🥚"},
+  {name:"Steal a Brainrot",image:"steal-a-brainrot.webp",emoji:"🧠"},
+  {name:"Murder Mystery 2",placeId:"142823291",emoji:"🔪"},
+  {name:"Brookhaven",placeId:"4924922222",emoji:"🏡"},
+  {name:"Adopt Me",placeId:"920587237",emoji:"🐶"},
+  {name:"Blox Fruits",placeId:"2753915549",emoji:"🍎"},
+  {name:"Otros juegos",emoji:"🎮"}
 ];
 
 function safeText(value){
   return String(value ?? "").replace(/[&<>"']/g,char=>({
-    "&":"&amp;",
-    "<":"&lt;",
-    ">":"&gt;",
-    '"':"&quot;",
-    "'":"&#039;"
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
   })[char]);
 }
 
 function slug(value){
   return value.toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .replace(/[^a-z0-9]+/g,"-")
-    .replace(/^-|-$/g,"");
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 }
 
 function publicUrl(path){
@@ -497,20 +369,18 @@ function publicUrl(path){
 function showPage(page){
   document.getElementById("homePage").classList.toggle("hidden",page !== "home");
   document.getElementById("photosPage").classList.toggle("hidden",page !== "photos");
+  document.getElementById("playPage").classList.toggle("hidden",page !== "play");
 
-  location.hash = page === "photos" ? "fotos" : "sonidos";
+  location.hash = page === "photos" ? "fotos" :
+                  page === "play" ? "play" : "sonidos";
 
   if(page === "photos") loadPhotos();
-
   window.scrollTo({top:0,behavior:"smooth"});
 }
 
-/* PORTADAS DE JUEGOS */
+/* PORTADAS */
 function showGameFallback(card,emoji,name){
-  card.innerHTML = `
-    <div class="emoji">${emoji}</div>
-    <div>${safeText(name)}</div>
-  `;
+  card.innerHTML = `<div class="emoji">${emoji}</div><div>${safeText(name)}</div>`;
 }
 
 function renderGames(){
@@ -520,49 +390,39 @@ function renderGames(){
   games.forEach(game=>{
     const card = document.createElement("div");
     card.className = "game";
-
     showGameFallback(card,game.emoji,game.name);
     grid.appendChild(card);
 
     if(game.image){
       const img = new Image();
       img.src = game.image;
-
       img.onload = ()=>{
         card.innerHTML = "";
         card.appendChild(img);
-
         const name = document.createElement("div");
         name.textContent = game.name;
         card.appendChild(name);
       };
-      img.onerror = ()=>{
-        showGameFallback(card,game.emoji,game.name);
-      };
+      img.onerror = ()=>showGameFallback(card,game.emoji,game.name);
     }
 
     if(game.placeId){
-      fetch(
-        "https://thumbnails.roblox.com/v1/games/icons?universeIds=" +
-        game.placeId + "&size=512x512&format=Png&isCircular=false"
-      )
-      .then(response=>response.json())
-      .then(data=>{
-        const image = data.data?.[0]?.imageUrl;
-        if(!image) return;
-
-        const img = new Image();
-        img.src = image;
-        img.onload = ()=>{
-          card.innerHTML = "";
-          card.appendChild(img);
-
-          const name = document.createElement("div");
-          name.textContent = game.name;
-          card.appendChild(name);
-        };
-      })
-      .catch(()=>{});
+      fetch("https://thumbnails.roblox.com/v1/games/icons?universeIds=" +
+        game.placeId + "&size=512x512&format=Png&isCircular=false")
+        .then(response=>response.json())
+        .then(data=>{
+          const image = data.data?.[0]?.imageUrl;
+          if(!image) return;
+          const img = new Image();
+          img.src = image;
+          img.onload = ()=>{
+            card.innerHTML = "";
+            card.appendChild(img);
+            const name = document.createElement("div");
+            name.textContent = game.name;
+            card.appendChild(name);
+          };
+        }).catch(()=>{});
     }
   });
 }
@@ -576,14 +436,9 @@ async function loadSounds(){
       SUPABASE_URL + "/storage/v1/object/list/" + BUCKET,
       {
         method:"POST",
-        headers:{
-          ...headers,
-          "Content-Type":"application/json"
-        },
+        headers:{...headers,"Content-Type":"application/json"},
         body:JSON.stringify({
-          prefix:"",
-          limit:200,
-          offset:0,
+          prefix:"",limit:200,offset:0,
           sortBy:{column:"created_at",order:"desc"}
         })
       }
@@ -592,50 +447,35 @@ async function loadSounds(){
     if(!response.ok) throw new Error(await response.text());
 
     const files = await response.json();
-
     sounds = files
       .filter(file=>file.name && /\.(mp3|wav|ogg|m4a)$/i.test(file.name))
-      .map(file=>({
-        name:file.name,
-        url:publicUrl(file.name)
-      }));
+      .map(file=>({name:file.name,url:publicUrl(file.name)}));
 
     renderSounds();
-
   }catch(error){
     console.error(error);
-    list.innerHTML =
-      '<p class="muted">No se pudieron cargar los sonidos. Revisa Supabase.</p>';
+    list.innerHTML='<p class="muted">No se pudieron cargar los sonidos. Revisa Supabase.</p>';
   }
 }
 
 function renderSounds(){
   const list = document.getElementById("soundList");
   const query = document.getElementById("soundSearch").value.toLowerCase();
-
-  const filtered = sounds.filter(sound=>
-    sound.name.toLowerCase().includes(query)
-  );
+  const filtered = sounds.filter(sound=>sound.name.toLowerCase().includes(query));
 
   if(!filtered.length){
-    list.innerHTML = '<p class="muted">Todavía no hay sonidos publicados.</p>';
+    list.innerHTML='<p class="muted">Todavía no hay sonidos publicados.</p>';
     return;
   }
 
   list.innerHTML = filtered.map(sound=>{
-    const title = sound.name
-      .replace(/\.[^.]+$/,"")
-      .replace(/--/g," · ")
-      .replace(/-/g," ");
-
+    const title = sound.name.replace(/\.[^.]+$/,"").replace(/--/g," · ").replace(/-/g," ");
     return `
       <article class="sound-card">
         <h3>🔊 ${safeText(title)}</h3>
         <audio controls preload="none" src="${safeText(sound.url)}"></audio>
-        <a class="btn primary" href="${safeText(sound.url)}"
-          download>⬇ DESCARGAR</a>
-      </article>
-    `;
+        <a class="btn primary" href="${safeText(sound.url)}" download>⬇ DESCARGAR</a>
+      </article>`;
   }).join("");
 }
 
@@ -651,23 +491,19 @@ document.getElementById("soundForm").addEventListener("submit",async event=>{
   if(!file || !title || !game) return;
 
   if(file.size > 15*1024*1024){
-    status.textContent = "El archivo supera los 15 MB.";
+    status.textContent="El archivo supera los 15 MB.";
     return;
   }
 
-  status.textContent = "Subiendo sonido...";
+  status.textContent="Subiendo sonido...";
 
-  const filename =
-    slug(game) + "--" +
-    slug(rarity || "sonido") + "--" +
-    slug(title) + "-" +
-    crypto.randomUUID() + "." +
+  const filename = slug(game) + "--" + slug(rarity || "sonido") +
+    "--" + slug(title) + "-" + crypto.randomUUID() + "." +
     file.name.split(".").pop().toLowerCase();
 
   try{
     const response = await fetch(
-      SUPABASE_URL + "/storage/v1/object/" +
-      BUCKET + "/" + encodeURIComponent(filename),
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" + encodeURIComponent(filename),
       {
         method:"POST",
         headers:{
@@ -681,145 +517,122 @@ document.getElementById("soundForm").addEventListener("submit",async event=>{
 
     if(!response.ok) throw new Error(await response.text());
 
-    status.textContent = "¡Sonido publicado correctamente!";
+    status.textContent="¡Sonido publicado correctamente!";
     event.target.reset();
     await loadSounds();
-
   }catch(error){
     console.error(error);
-    status.textContent = "Error al subir. Revisa las políticas de Supabase.";
+    status.textContent="Error al subir. Revisa las políticas de Supabase.";
   }
 });
 
-/* FOTO: VISTA PREVIA */
+/* VISTA PREVIA DE FOTOS */
 document.getElementById("photoFile").addEventListener("change",event=>{
   const file = event.target.files[0];
   const preview = document.getElementById("photoPreview");
   const status = document.getElementById("photoStatus");
 
-  preview.innerHTML = "";
-  status.textContent = "";
-
+  preview.innerHTML="";
+  status.textContent="";
   if(!file) return;
 
-  const allowed = ["image/png","image/jpeg","image/webp","image/gif"];
+  const allowed=["image/png","image/jpeg","image/webp","image/gif"];
 
   if(!allowed.includes(file.type)){
-    event.target.value = "";
-    status.textContent = "Formato no permitido.";
+    event.target.value="";
+    status.textContent="Formato no permitido.";
     return;
   }
 
   if(file.size > 10*1024*1024){
-    event.target.value = "";
-    status.textContent = "La foto supera los 10 MB.";
+    event.target.value="";
+    status.textContent="La foto supera los 10 MB.";
     return;
   }
 
-  const img = document.createElement("img");
-  img.src = URL.createObjectURL(file);
-  img.style.cssText =
-    "max-width:100%;max-height:220px;border:3px solid #000;border-radius:12px;margin-top:12px";
-
+  const img=document.createElement("img");
+  img.src=URL.createObjectURL(file);
+  img.style.cssText="max-width:100%;max-height:220px;border:3px solid #000;border-radius:12px;margin-top:12px";
   preview.appendChild(img);
 });
 
-/* FOTO: SUBIDA */
+/* SUBIR FOTOS */
 document.getElementById("photoForm").addEventListener("submit",async event=>{
   event.preventDefault();
 
-  const status = document.getElementById("photoStatus");
-  const title = document.getElementById("photoTitle").value.trim();
-  const file = document.getElementById("photoFile").files[0];
+  const status=document.getElementById("photoStatus");
+  const title=document.getElementById("photoTitle").value.trim();
+  const file=document.getElementById("photoFile").files[0];
 
   if(!title || !file) return;
 
-  const allowed = ["image/png","image/jpeg","image/webp","image/gif"];
+  const allowed=["image/png","image/jpeg","image/webp","image/gif"];
 
   if(!allowed.includes(file.type)){
-    status.textContent = "Formato no permitido.";
+    status.textContent="Formato no permitido.";
     return;
   }
 
   if(file.size > 10*1024*1024){
-    status.textContent = "La foto supera los 10 MB.";
+    status.textContent="La foto supera los 10 MB.";
     return;
   }
 
-  status.textContent = "Subiendo foto...";
+  status.textContent="Subiendo foto...";
 
-  const extension = file.name.split(".").pop().toLowerCase();
-  const id = crypto.randomUUID();
-  const filename = "photos/" + id + "." + extension;
-  const titlePath = "photos/" + id + ".title.txt";
+  const extension=file.name.split(".").pop().toLowerCase();
+  const id=crypto.randomUUID();
+  const filename="photos/"+id+"."+extension;
+  const titlePath="photos/"+id+".title.txt";
 
   try{
-    const upload = await fetch(
-      SUPABASE_URL + "/storage/v1/object/" +
-      BUCKET + "/" +
+    const upload=await fetch(
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" +
       filename.split("/").map(encodeURIComponent).join("/"),
       {
         method:"POST",
-        headers:{
-          ...headers,
-          "Content-Type":file.type,
-          "x-upsert":"false"
-        },
+        headers:{...headers,"Content-Type":file.type,"x-upsert":"false"},
         body:file
       }
     );
 
     if(!upload.ok) throw new Error(await upload.text());
 
-    const titleUpload = await fetch(
-      SUPABASE_URL + "/storage/v1/object/" +
-      BUCKET + "/" +
+    const titleUpload=await fetch(
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" +
       titlePath.split("/").map(encodeURIComponent).join("/"),
       {
         method:"POST",
-        headers:{
-          ...headers,
-          "Content-Type":"text/plain",
-          "x-upsert":"false"
-        },
+        headers:{...headers,"Content-Type":"text/plain","x-upsert":"false"},
         body:title
       }
     );
 
-    if(!titleUpload.ok){
-      console.warn("No se pudo guardar el título de la foto.");
-    }
+    if(!titleUpload.ok) console.warn("No se pudo guardar el título.");
 
-    status.textContent = "¡Foto publicada correctamente!";
+    status.textContent="¡Foto publicada correctamente!";
     event.target.reset();
-    document.getElementById("photoPreview").innerHTML = "";
-
+    document.getElementById("photoPreview").innerHTML="";
     await loadPhotos();
-
   }catch(error){
     console.error(error);
-    status.textContent = "Error al subir. Revisa las políticas de Supabase.";
+    status.textContent="Error al subir. Revisa las políticas de Supabase.";
   }
 });
 
-/* GALERÍA DE FOTOS */
+/* GALERÍA */
 async function loadPhotos(){
-  const grid = document.getElementById("photoGrid");
-  grid.innerHTML = '<p class="muted">Cargando fotos...</p>';
+  const grid=document.getElementById("photoGrid");
+  grid.innerHTML='<p class="muted">Cargando fotos...</p>';
 
   try{
-    const response = await fetch(
+    const response=await fetch(
       SUPABASE_URL + "/storage/v1/object/list/" + BUCKET,
       {
         method:"POST",
-        headers:{
-          ...headers,
-          "Content-Type":"application/json"
-        },
+        headers:{...headers,"Content-Type":"application/json"},
         body:JSON.stringify({
-          prefix:"photos/",
-          limit:200,
-          offset:0,
+          prefix:"photos/",limit:200,offset:0,
           sortBy:{column:"created_at",order:"desc"}
         })
       }
@@ -827,69 +640,50 @@ async function loadPhotos(){
 
     if(!response.ok) throw new Error(await response.text());
 
-    const files = await response.json();
-
-    const imageFiles = files.filter(file=>
+    const files=await response.json();
+    const imageFiles=files.filter(file=>
       file.name && /\.(png|jpe?g|webp|gif)$/i.test(file.name)
     );
 
-    photos = await Promise.all(imageFiles.map(async file=>{
-      const path = "photos/" + file.name;
-      let title = file.name.replace(/\.[^.]+$/,"");
+    photos=await Promise.all(imageFiles.map(async file=>{
+      const path="photos/"+file.name;
+      let title=file.name.replace(/\.[^.]+$/,"");
 
       try{
-        const titlePath = path.replace(/\.[^.]+$/,"") + ".title.txt";
-        const titleResponse = await fetch(publicUrl(titlePath));
-
-        if(titleResponse.ok){
-          title = await titleResponse.text();
-        }
+        const titlePath=path.replace(/\.[^.]+$/,"")+".title.txt";
+        const titleResponse=await fetch(publicUrl(titlePath));
+        if(titleResponse.ok) title=await titleResponse.text();
       }catch(error){}
 
-      return {
-        name:file.name,
-        title,
-        url:publicUrl(path)
-      };
+      return {name:file.name,title,url:publicUrl(path)};
     }));
 
     renderPhotos();
-
   }catch(error){
     console.error(error);
-    grid.innerHTML =
-      '<p class="muted">No se pudieron cargar las fotos. Revisa las políticas de Supabase.</p>';
+    grid.innerHTML='<p class="muted">No se pudieron cargar las fotos. Revisa Supabase.</p>';
   }
 }
 
 function renderPhotos(){
-  const grid = document.getElementById("photoGrid");
-  const query = document.getElementById("photoSearch").value.toLowerCase();
-
-  const filtered = photos.filter(photo=>
-    photo.title.toLowerCase().includes(query)
-  );
+  const grid=document.getElementById("photoGrid");
+  const query=document.getElementById("photoSearch").value.toLowerCase();
+  const filtered=photos.filter(photo=>photo.title.toLowerCase().includes(query));
 
   if(!filtered.length){
-    grid.innerHTML = '<p class="muted">Todavía no hay fotos publicadas.</p>';
+    grid.innerHTML='<p class="muted">Todavía no hay fotos publicadas.</p>';
     return;
   }
 
-  grid.innerHTML = filtered.map(photo=>`
+  grid.innerHTML=filtered.map(photo=>`
     <article class="photo-card">
-      <img src="${safeText(photo.url)}"
-        alt="${safeText(photo.title)}"
-        loading="lazy">
-
+      <img src="${safeText(photo.url)}" alt="${safeText(photo.title)}" loading="lazy">
       <h3>${safeText(photo.title)}</h3>
-
       <div class="photo-actions">
         <a href="${safeText(photo.url)}" target="_blank" rel="noopener">
           <button type="button">👁 VER</button>
         </a>
-
-        <a href="${safeText(photo.url)}"
-          download="${safeText(photo.name)}">
+        <a href="${safeText(photo.url)}" download="${safeText(photo.name)}">
           <button type="button" class="green">⬇ DESCARGAR</button>
         </a>
       </div>
@@ -901,9 +695,8 @@ function renderPhotos(){
 renderGames();
 loadSounds();
 
-if(location.hash === "#fotos"){
-  showPage("photos");
-}
+if(location.hash==="#fotos") showPage("photos");
+if(location.hash==="#play") showPage("play");
 </script>
 </body>
 </html>
