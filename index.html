@@ -1,124 +1,136 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEON SOUND MARKET</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-*{box-sizing:border-box;font-family:'Montserrat',sans-serif!important}
-body{margin:0;background:#050811;color:white}
-header{padding:22px 7%;background:#080f1d;border-bottom:1px solid #12365a}
-.logo{font-size:25px;font-weight:900;color:#20bfff;text-shadow:0 0 15px #087dcc}
-nav{display:flex;gap:20px;flex-wrap:wrap;margin-top:18px}
-nav a{color:#a9c5df;text-decoration:none;font-size:12px;font-weight:800}
-nav a:hover{color:#20bfff}
-.hero{padding:55px 7% 40px;background:radial-gradient(ellipse at top,#10365a,#050811 70%)}
-.hero h1{font-size:clamp(30px,6vw,55px);margin:10px 0;font-weight:900;text-shadow:0 0 15px #168bd4;-webkit-text-stroke:.5px #74d6ff}
-.hero p{color:#9eb6ce;line-height:1.7}
-.tag{color:#20bfff;font-size:11px;font-weight:900;letter-spacing:3px}
-main{padding:25px 7% 60px;max-width:1500px;margin:auto}
-.section-title{font-size:18px;font-weight:900;margin:30px 0 15px}
-.toolbar,.upload-row{display:flex;gap:12px;flex-wrap:wrap;margin:15px 0 25px}
-input,select{background:#0c1728;color:white;border:1px solid #17446b;border-radius:10px;padding:14px;outline:none;min-width:0}
-input:focus,select:focus{border-color:#20bfff}
-#search{flex:1;min-width:200px}
-button,.upload-label{background:#087fc0;color:white;border:0;border-radius:10px;padding:13px 17px;font-weight:800;cursor:pointer}
-button:hover{background:#16aaf4}
-button:disabled{opacity:.55;cursor:not-allowed}
-.categories{display:flex;gap:9px;flex-wrap:wrap;margin-bottom:22px}
-.cat{background:#0c1728;border:1px solid #17446b;color:#a9c5df}
-.cat.active{background:#087fc0;color:white;border-color:#20bfff}
-.game-covers{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px;margin:20px 0 30px}
-.game-cover{overflow:hidden;background:#0c1728;border:1px solid #17446b;border-radius:15px;cursor:pointer;transition:.2s}
-.game-cover:hover{transform:translateY(-4px);border-color:#20bfff;box-shadow:0 0 20px #087fc044}
-.cover-image{width:100%;height:145px;background:linear-gradient(135deg,#102d4b,#07101d);display:grid;place-items:center;font-size:45px;color:#20bfff;overflow:hidden}
-.cover-image img{width:100%;height:100%;object-fit:cover}
-.game-cover-info{padding:13px}.game-cover-info h3{margin:0 0 6px;font-size:14px}
-.game-cover-info span{color:#20bfff;font-size:10px;font-weight:800}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(245px,1fr));gap:16px}
-.card{background:linear-gradient(145deg,#101d30,#09111f);border:1px solid #173c5d;border-radius:15px;padding:17px;min-width:0}
-.card:hover{border-color:#20bfff;box-shadow:0 0 18px #087fc033}
-.sound-icon{height:95px;border-radius:11px;background:linear-gradient(135deg,#102d4b,#07101d);display:grid;place-items:center;font-size:39px;color:#20bfff}
-.card h3{font-size:15px;margin:14px 0 7px;overflow-wrap:anywhere}
-.meta{color:#8da9c5;font-size:11px;margin-bottom:12px;line-height:1.7}
-audio{width:100%;height:38px;margin:5px 0}
-.actions{display:flex;gap:8px;margin-top:10px}
-.actions button{flex:1;font-size:10px;padding:11px 5px}
-.delete{background:#542333}
-.empty{padding:35px;text-align:center;border:1px dashed #245477;border-radius:14px;color:#9eb6ce;line-height:1.8}
-.panel{background:#0b1627;border:1px solid #17446b;border-radius:16px;padding:20px;margin-top:35px}
-.panel p{color:#9eb6ce;font-size:13px;line-height:1.7}
-.panel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
-.panel-grid input,.panel-grid select{width:100%}
-.owner-status{font-size:12px;color:#9eb6ce;line-height:1.7;margin-top:12px}
-.owner-hidden{display:none!important}
-.owner-badge{display:inline-block;color:#20bfff;border:1px solid #17618c;border-radius:99px;padding:5px 10px;font-size:10px;font-weight:900}
-.small{font-size:11px;color:#829bb5}
-footer{border-top:1px solid #12365a;padding:25px 7%;color:#7895b2;font-size:11px;text-align:center}
-@media(max-width:600px){header,main{padding-left:5%;padding-right:5%}.hero{padding-left:5%;padding-right:5%}.actions{flex-direction:column}}
+:root {
+  --bg:#050811;
+  --panel:#0c1425;
+  --panel2:#101d33;
+  --blue:#00b7ff;
+  --cyan:#00f0ff;
+  --text:#f2f8ff;
+  --muted:#8da4bd;
+  --border:#173653;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;background:radial-gradient(ellipse at top,#102b48 0,#050811 55%);
+  color:var(--text);font-family:Montserrat,sans-serif;min-height:100vh;
+}
+header{
+  padding:24px 5%;display:flex;align-items:center;justify-content:space-between;
+  gap:15px;flex-wrap:wrap;border-bottom:1px solid var(--border);
+  background:#050811dd;position:sticky;top:0;z-index:5;backdrop-filter:blur(15px);
+}
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--cyan);text-shadow:0 0 15px var(--blue)}
+nav{display:flex;gap:10px;flex-wrap:wrap}
+button,.button{
+  border:1px solid var(--blue);background:#071b30;color:white;
+  padding:11px 16px;border-radius:10px;font-weight:800;
+  font-family:inherit;cursor:pointer;text-decoration:none;
+}
+button:hover,.button:hover{background:var(--blue);color:#00111d}
+main{max-width:1250px;margin:auto;padding:35px 20px}
+.hero{text-align:center;padding:40px 10px}
+.hero h1{font-size:clamp(30px,6vw,55px);margin:0 0 12px;font-weight:900}
+.hero h1 span{color:var(--cyan);text-shadow:0 0 25px #00b7ff88}
+.hero p{color:var(--muted);line-height:1.7}
+.searchbar{
+  width:min(650px,100%);margin:25px auto;display:flex;gap:10px;
+}
+input,select{
+  background:#0b1728;color:white;border:1px solid var(--border);
+  border-radius:10px;padding:14px;font-family:inherit;outline:none;width:100%;
+}
+input:focus,select:focus{border-color:var(--cyan)}
+.section-title{font-size:21px;font-weight:900;margin:35px 0 17px}
+.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
+.category.active{background:var(--blue);color:#00111d}
+.games{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;
+}
+.game{
+  background:var(--panel);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s;
+}
+.game:hover{transform:translateY(-4px);border-color:var(--cyan)}
+.game img{width:100%;height:100px;object-fit:cover;display:block}
+.game div{padding:12px;font-size:12px;font-weight:800;text-align:center}
+.sounds{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;
+}
+.sound{
+  background:linear-gradient(145deg,#101d33,#09111e);
+  border:1px solid var(--border);border-radius:15px;padding:17px;
+}
+.sound h3{margin:0 0 8px;font-size:15px}
+.sound small{color:var(--muted)}
+.sound audio{width:100%;margin-top:14px}
+.sound-actions{display:flex;justify-content:space-between;gap:10px;margin-top:12px}
+.sound-actions a{color:var(--cyan);font-size:12px;text-decoration:none;font-weight:800}
+.upload-box{
+  background:var(--panel);border:1px solid var(--blue);
+  box-shadow:0 0 25px #00b7ff16;border-radius:18px;padding:25px;
+  margin-top:45px;
+}
+.upload-box h2{margin-top:0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.form-grid .full{grid-column:1/-1}
+#status{color:var(--cyan);font-size:13px;margin-top:15px}
+.empty{color:var(--muted);text-align:center;padding:35px}
+footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
+@media(max-width:600px){
+  header{justify-content:center}
+  .form-grid{grid-template-columns:1fr}
+  .form-grid .full{grid-column:auto}
+}
 </style>
 </head>
+
 <body>
 <header>
-  <div class="logo">NEON SOUND MARKET</div>
+  <div class="logo">NEON <span>SOUND MARKET</span></div>
   <nav>
-    <a href="#library">BIBLIOTECA</a>
-    <a href="#games">JUEGOS</a>
-    <a href="#owner">NEON ADMIN</a>
+    <button onclick="document.getElementById('library').scrollIntoView()">Biblioteca</button>
+    <button onclick="document.getElementById('upload').scrollIntoView()">Subir sonido</button>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="tag">ROBLOX AUDIO COLLECTION</div>
-  <h1>NEON SOUND MARKET</h1>
-  <p>Explora, escucha y descarga sonidos de tus juegos favoritos.</p>
-  <p class="small">TU BIBLIOTECA DE AUDIO EN UN SOLO LUGAR.</p>
-</section>
-
 <main>
-<section id="library">
-  <div class="section-title">BUSCAR SONIDOS</div>
-  <div class="toolbar">
-    <input id="search" placeholder="Buscar sonidos por nombre..." aria-label="Buscar sonidos">
-    <select id="sort" aria-label="Ordenar sonidos">
-      <option value="new">Más recientes</option>
-      <option value="name">Nombre A-Z</option>
-    </select>
-  </div>
-  <div class="section-title">CATEGORÍAS</div>
-  <div class="categories" id="categoryButtons"></div>
-  <div class="section-title" id="games">JUEGOS DESTACADOS</div>
-  <div class="game-covers" id="gameCovers"></div>
-  <div class="section-title">BIBLIOTECA DE SONIDOS</div>
-  <div class="grid" id="soundGrid"></div>
-  <div id="empty" class="empty" hidden>
-    <div style="font-size:35px">🎧</div>
-    <b>Todavía no hay sonidos</b><br>
-    Los sonidos que publique el OWNER aparecerán aquí.
-  </div>
-  <div id="libraryStatus" class="small" role="status"></div>
-</section>
-
-<section class="panel" id="owner">
-  <div class="tag">ACCESO RESTRINGIDO</div>
-  <div class="section-title">NEON ADMIN <span class="owner-badge">SOLO OWNER</span></div>
-  <p>Inicia sesión con la contraseña privada para publicar o eliminar sonidos de la biblioteca.</p>
-
-  <form id="loginForm">
-    <div class="upload-row">
-      <input id="ownerPassword" type="password" autocomplete="current-password" placeholder="Contraseña del OWNER" required>
-      <button id="loginButton" type="submit">ENTRAR</button>
+  <section class="hero">
+    <h1>NEON <span>SOUND MARKET</span></h1>
+    <p>Descubre, escucha y comparte sonidos de tus juegos favoritos de Roblox.</p>
+    <div class="searchbar">
+      <input id="search" placeholder="Buscar sonidos..." oninput="renderSounds()">
     </div>
-  </form>
-  <div id="loginStatus" class="owner-status" role="status"></div>
+  </section>
 
-  <div id="ownerTools" class="owner-hidden">
-    <div class="owner-status"><span class="owner-badge">SESIÓN OWNER ACTIVA</span> La sesión dura 30 minutos o hasta que cierres esta pestaña.</div>
-    <div class="section-title">PUBLICAR SONIDO</div>
-    <div class="panel-grid">
-      <input id="soundName" maxlength="70" placeholder="Nombre del sonido" aria-label="Nombre del sonido">
-      <select id="gameCategory" aria-label="Categoría del juego">
+  <h2 class="section-title">JUEGOS</h2>
+  <div class="games" id="games"></div>
+
+  <section id="library">
+    <h2 class="section-title">BIBLIOTECA DE SONIDOS</h2>
+    <div class="categories" id="categories"></div>
+    <div class="sounds" id="sounds">
+      <div class="empty">Cargando biblioteca...</div>
+    </div>
+  </section>
+
+  <section class="upload-box" id="upload">
+    <h2>⬆ SUBIR UN SONIDO</h2>
+    <p style="color:var(--muted)">Comparte tus sonidos con toda la comunidad.</p>
+
+    <div class="form-grid">
+      <input id="soundName" placeholder="Nombre del sonido">
+      <select id="gameSelect">
         <option>Steal an Egg</option>
         <option>Steal a Brainrot</option>
         <option>Murder Mystery 2</option>
@@ -127,332 +139,237 @@ footer{border-top:1px solid #12365a;padding:25px 7%;color:#7895b2;font-size:11px
         <option>Blox Fruits</option>
         <option>Otros juegos</option>
       </select>
-      <select id="rarity" aria-label="Rareza del sonido">
-        <option value="NORMAL">NORMAL</option>
-        <option value="DIVINO">DIVINO</option>
-        <option value="SECRET">SECRET</option>
-        <option value="ETERNAL">ETERNAL</option>
+      <select id="rarity">
+        <option>Normal</option>
+        <option>Rare</option>
+        <option>Epic</option>
+        <option>Legendary</option>
+        <option>Secret</option>
+        <option>Eternal</option>
+        <option>Divino</option>
       </select>
-      <input id="fileInput" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/mpeg,audio/wav,audio/ogg,audio/mp4">
+      <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*">
+      <button class="full" onclick="uploadSound()">PUBLICAR SONIDO</button>
     </div>
-    <div class="upload-row">
-      <button id="uploadButton" type="button">SUBIR SONIDO</button>
-      <button id="logoutButton" type="button" class="delete">CERRAR SESIÓN</button>
-    </div>
-    <div id="ownerStatus" class="owner-status" role="status"></div>
-    <p class="small">Formatos permitidos: MP3, WAV, OGG y M4A. Máximo 15 MB por archivo.</p>
-  </div>
-</section>
+    <div id="status"></div>
+  </section>
 </main>
 
-<footer>
-  NEON SOUND MARKET · ROBLOX AUDIO COLLECTION
-  <br><br>
-  Comparte solamente sonidos propios o archivos que tengas permiso para distribuir.
-</footer>
+<footer>NEON SOUND MARKET · Biblioteca comunitaria de sonidos</footer>
 
 <script>
-// CONFIGURACIÓN PÚBLICA: nunca coloques aquí OWNER_PASSWORD ni claves secretas.
-const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co/rest/v1/";
-const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
-const NEON_ADMIN_URL = `${SUPABASE_URL}/functions/v1/neon-admin`;
+const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co";
+const SUPABASE_KEY = "PEGA_TU_CLAVE_PUBLICABLE";
 const BUCKET = "neon-sounds";
 
-const categories = [
-  "Todos","Steal an Egg","Steal a Brainrot","Murder Mystery 2",
-  "Brookhaven","Adopt Me!","Blox Fruits","Otros juegos"
-];
-
 const games = [
-  {name:"Steal An Egg",category:"Steal an Egg",placeId:"107778070777162",emoji:"🥚"},
-  {name:"Steal a Brainrot",category:"Steal a Brainrot",placeId:"109983668079237",emoji:"🧠"},
-  {name:"Murder Mystery 2",category:"Murder Mystery 2",placeId:"142823291",emoji:"🔪"},
-  {name:"Brookhaven",category:"Brookhaven",placeId:"4924922222",emoji:"🏡"},
-  {name:"Adopt Me!",category:"Adopt Me!",placeId:"920587237",emoji:"🐾"},
-  {name:"Blox Fruits",category:"Blox Fruits",placeId:"2753915549",emoji:"⚔️"}
+  {name:"Steal an Egg",id:0,emoji:"🥚"},
+  {name:"Steal a Brainrot",id:0,emoji:"🧠"},
+  {name:"Murder Mystery 2",id:142823291,id2:0,emoji:"🔪"},
+  {name:"Brookhaven",id:0,emoji:"🏡"},
+  {name:"Adopt Me!",id:0,emoji:"🐶"},
+  {name:"Blox Fruits",id:0,emoji:"🍎"},
+  {name:"Otros juegos",id:0,emoji:"🎮"}
 ];
 
-let selectedCategory = "Todos";
-let sounds = [];
-let neonOwnerToken = "";
-let sessionTimer = null;
+let allSounds = [];
+let selectedGame = "Todos";
 
-const grid = document.getElementById("soundGrid");
-const empty = document.getElementById("empty");
-const search = document.getElementById("search");
-const sort = document.getElementById("sort");
-const libraryStatus = document.getElementById("libraryStatus");
-const loginStatus = document.getElementById("loginStatus");
-const ownerStatus = document.getElementById("ownerStatus");
-
-function slug(value){
-  return String(value).normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase().trim().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,70) || "sonido";
-}
-
-function categoryFromSlug(value){
-  const map = {
-    "steal-an-egg":"Steal an Egg",
-    "steal-a-brainrot":"Steal a Brainrot",
-    "murder-mystery-2":"Murder Mystery 2",
-    "brookhaven":"Brookhaven",
-    "adopt-me":"Adopt Me!",
-    "blox-fruits":"Blox Fruits",
-    "otros-juegos":"Otros juegos"
-  };
-  return map[value] || "Otros juegos";
-}
-
-function parseObject(item){
-  const fullName = item.name || "";
-  const parts = fullName.split("--");
-  const category = categoryFromSlug(parts[0] || "");
-  const rarity = (parts[1] || "NORMAL").toUpperCase();
-  const nameSlug = parts[2] || "sonido";
-  const displayName = nameSlug.replace(/-/g," ").replace(/\b\w/g,c=>c.toUpperCase());
-  const publicUrl = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${encodeURIComponent(fullName)}`;
+function headers(){
   return {
-    id:fullName,path:fullName,name:displayName,category,rarity,
-    url:publicUrl,created:item.created_at || item.updated_at || ""
+    apikey:SUPABASE_KEY,
+    Authorization:"Bearer "+SUPABASE_KEY
   };
 }
 
-async function neonAdminRequest(action, body, token=""){
-  const headers = {
-    apikey:SUPABASE_PUBLISHABLE_KEY,
-    "x-neon-action":action
+function showStatus(message){
+  document.getElementById("status").textContent=message;
+}
+
+function renderGames(){
+  const root=document.getElementById("games");
+  root.innerHTML="";
+  games.forEach(game=>{
+    const card=document.createElement("div");
+    card.className="game";
+    const image=document.createElement("div");
+    image.style.cssText="height:100px;display:grid;place-items:center;font-size:38px;background:#102b48";
+    image.textContent=game.emoji;
+    const name=document.createElement("div");
+    name.textContent=game.name;
+    card.append(image,name);
+    card.onclick=()=>{
+      selectedGame=game.name;
+      renderCategories();
+      renderSounds();
+      document.getElementById("library").scrollIntoView();
+    };
+    root.appendChild(card);
+  });
+}
+
+function renderCategories(){
+  const root=document.getElementById("categories");
+  root.innerHTML="";
+  ["Todos",...games.map(g=>g.name)].forEach(name=>{
+    const button=document.createElement("button");
+    button.className="category"+(selectedGame===name?" active":"");
+    button.textContent=name;
+    button.onclick=()=>{
+      selectedGame=name;
+      renderCategories();
+      renderSounds();
+    };
+    root.appendChild(button);
+  });
+}
+
+function parseFileName(name){
+  const parts=name.split("--");
+  return {
+    game:parts.length>=3?parts[0].replace(/-/g," "):"Otros juegos",
+    rarity:parts.length>=3?parts[1]:"Normal",
+    title:parts.length>=3?parts.slice(2).join("--") : name
   };
-  if(token) headers.authorization = `Bearer ${token}`;
-  let requestBody = body;
-  if(body instanceof FormData){
-    requestBody = body;
-  }else if(body !== undefined){
-    headers["Content-Type"] = "application/json";
-    requestBody = JSON.stringify(body);
-  }
-  const response = await fetch(NEON_ADMIN_URL,{method:"POST",headers,body:requestBody});
-  const result = await response.json().catch(()=>({error:"Respuesta no válida del servidor"}));
-  if(!response.ok) throw new Error(result.error || `Error ${response.status}`);
-  return result;
 }
 
 async function loadSounds(){
-  if(!SUPABASE_URL.startsWith("https://") || SUPABASE_PUBLISHABLE_KEY.startsWith("TU_")){
-    libraryStatus.textContent = "Configura SUPABASE_URL y SUPABASE_PUBLISHABLE_KEY para conectar la biblioteca.";
-    sounds = [];
-    render();
+  try{
+    const response=await fetch(
+      `${SUPABASE_URL}/storage/v1/object/list/${BUCKET}`,
+      {
+        method:"POST",
+        headers:{...headers(),"Content-Type":"application/json"},
+        body:JSON.stringify({prefix:"",limit:500,offset:0,sortBy:{column:"created_at",order:"desc"}})
+      }
+    );
+    if(!response.ok) throw new Error("No se pudo leer el bucket ("+response.status+")");
+    const files=await response.json();
+    allSounds=files.filter(f=>f.name && !f.name.startsWith(".")).map(f=>{
+      const meta=parseFileName(f.name);
+      return {
+        ...meta,
+        file:f.name,
+        url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${f.name}`,
+        date:f.created_at || f.updated_at || ""
+      };
+    });
+    renderSounds();
+  }catch(error){
+    document.getElementById("sounds").innerHTML=
+      '<div class="empty">No se pudo cargar la biblioteca. Revisa la configuración pública de Supabase.</div>';
+    console.error(error);
+  }
+}
+
+function renderSounds(){
+  const root=document.getElementById("sounds");
+  const query=document.getElementById("search").value.toLowerCase().trim();
+  const filtered=allSounds.filter(s=>
+    (selectedGame==="Todos" || s.game.toLowerCase()===selectedGame.toLowerCase()) &&
+    (s.title.toLowerCase().includes(query) ||
+     s.game.toLowerCase().includes(query) ||
+     s.rarity.toLowerCase().includes(query))
+  );
+
+  root.innerHTML="";
+  if(!filtered.length){
+    root.innerHTML='<div class="empty">Todavía no hay sonidos en esta categoría.</div>';
     return;
   }
+
+  filtered.forEach(sound=>{
+    const card=document.createElement("article");
+    card.className="sound";
+
+    const title=document.createElement("h3");
+    title.textContent=sound.title;
+
+    const info=document.createElement("small");
+    info.textContent=sound.game+" · "+sound.rarity;
+
+    const audio=document.createElement("audio");
+    audio.controls=true;
+    audio.preload="none";
+    audio.src=sound.url;
+
+    const actions=document.createElement("div");
+    actions.className="sound-actions";
+    const download=document.createElement("a");
+    download.href=sound.url;
+    download.download=sound.file;
+    download.textContent="DESCARGAR";
+    actions.appendChild(download);
+
+    card.append(title,info,audio,actions);
+    root.appendChild(card);
+  });
+}
+
+async function uploadSound(){
+  const name=document.getElementById("soundName").value.trim();
+  const game=document.getElementById("gameSelect").value;
+  const rarity=document.getElementById("rarity").value;
+  const file=document.getElementById("soundFile").files[0];
+
+  if(SUPABASE_KEY==="PEGA_TU_CLAVE_PUBLICABLE"){
+    showStatus("Primero coloca tu clave Publishable en el código.");
+    return;
+  }
+  if(!name || !file){
+    showStatus("Escribe un nombre y selecciona un archivo.");
+    return;
+  }
+  const allowed=["audio/mpeg","audio/wav","audio/ogg","audio/mp4","audio/x-m4a"];
+  const extension=file.name.split(".").pop().toLowerCase();
+  if(!["mp3","wav","ogg","m4a"].includes(extension) ||
+     (file.type && !allowed.includes(file.type))){
+    showStatus("Formato no permitido. Usa MP3, WAV, OGG o M4A.");
+    return;
+  }
+  if(file.size>15*1024*1024){
+    showStatus("El archivo supera el límite de 15 MB.");
+    return;
+  }
+
+  const slug=textSlug(name);
+  const gameSlug=textSlug(game);
+  const fileName=`${gameSlug}--${rarity.toLowerCase()}--${slug}-${crypto.randomUUID()}.${extension}`;
+
+  showStatus("Subiendo sonido...");
   try{
-    libraryStatus.textContent = "Cargando sonidos...";
-    const response = await fetch(`${SUPABASE_URL}/storage/v1/object/list/${BUCKET}`,{
-      method:"POST",
-      headers:{
-        apikey:SUPABASE_PUBLISHABLE_KEY,
-        Authorization:`Bearer ${SUPABASE_PUBLISHABLE_KEY}`,
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({prefix:"",limit:100,offset:0,sortBy:{column:"created_at",order:"desc"}})
-    });
-    const result = await response.json();
-    if(!response.ok) throw new Error(result.message || result.error || "No se pudo leer el bucket");
-    sounds = (Array.isArray(result)?result:[])
-      .filter(item=>item.name && !item.name.endsWith("/"))
-      .map(parseObject);
-    libraryStatus.textContent = `${sounds.length} sonido(s) cargado(s) desde la biblioteca pública.`;
-    render();
+    const response=await fetch(
+      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${encodeURIComponent(fileName)}`,
+      {
+        method:"POST",
+        headers:{
+          ...headers(),
+          "Content-Type":file.type || "application/octet-stream",
+          "x-upsert":"false"
+        },
+        body:file
+      }
+    );
+    if(!response.ok){
+      const detail=await response.text();
+      throw new Error(detail || "Error "+response.status);
+    }
+    showStatus("¡Sonido publicado correctamente!");
+    document.getElementById("soundName").value="";
+    document.getElementById("soundFile").value="";
+    await loadSounds();
   }catch(error){
-    sounds = [];
-    render();
-    libraryStatus.textContent = `No se pudo cargar la biblioteca: ${error.message}. Revisa la política SELECT de Storage.`;
+    showStatus("Error al subir: "+error.message);
   }
 }
 
-function makeCategories(){
-  const container = document.getElementById("categoryButtons");
-  container.innerHTML = "";
-  categories.forEach(category=>{
-    const button = document.createElement("button");
-    button.className = "cat" + (selectedCategory===category?" active":"");
-    button.textContent = category;
-    button.onclick = ()=>{
-      selectedCategory = category;
-      makeCategories();
-      render();
-    };
-    container.appendChild(button);
-  });
+function textSlug(text){
+  return text.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,50);
 }
 
-async function loadGameCovers(){
-  const container = document.getElementById("gameCovers");
-  container.innerHTML = "";
-  games.forEach(game=>{
-    const card = document.createElement("article");
-    card.className = "game-cover";
-    const imageBox = document.createElement("div");
-    imageBox.className = "cover-image";
-    imageBox.textContent = game.emoji;
-    const info = document.createElement("div");
-    info.className = "game-cover-info";
-    const title = document.createElement("h3");
-    title.textContent = game.name;
-    const linkText = document.createElement("span");
-    linkText.textContent = "VER SONIDOS →";
-    info.append(title,linkText);
-    card.append(imageBox,info);
-    card.onclick = ()=>{
-      selectedCategory = game.category;
-      makeCategories();
-      render();
-      document.getElementById("library").scrollIntoView({behavior:"smooth"});
-    };
-    container.appendChild(card);
-  });
-  try{
-    const ids = games.map(game=>game.placeId).join(",");
-    const response = await fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${ids}&size=512x512&format=Png&isCircular=false`);
-    if(!response.ok) return;
-    const result = await response.json();
-    (result.data||[]).forEach(item=>{
-      const index = games.findIndex(game=>game.placeId===String(item.targetId));
-      if(index<0 || !item.imageUrl) return;
-      const imageBox = container.children[index].querySelector(".cover-image");
-      const img = document.createElement("img");
-      img.src = item.imageUrl;
-      img.alt = `Portada de ${games[index].name}`;
-      img.onerror = ()=>{img.remove();imageBox.textContent=games[index].emoji;};
-      imageBox.textContent = "";
-      imageBox.appendChild(img);
-    });
-  }catch(error){console.warn("No se pudieron cargar las portadas",error);}
-}
-
-function render(){
-  grid.innerHTML = "";
-  let list = sounds.filter(sound=>
-    (selectedCategory==="Todos" || sound.category===selectedCategory) &&
-    (sound.name.toLowerCase().includes(search.value.toLowerCase()) ||
-     sound.rarity.toLowerCase().includes(search.value.toLowerCase()))
-  );
-  if(sort.value==="name") list.sort((a,b)=>a.name.localeCompare(b.name));
-  else list.sort((a,b)=>String(b.created).localeCompare(String(a.created)));
-  empty.hidden = list.length!==0;
-  list.forEach(sound=>{
-    const card = document.createElement("article");
-    card.className = "card";
-    const icon = document.createElement("div");
-    icon.className = "sound-icon";
-    icon.textContent = sound.rarity==="ETERNAL"?"♾️":sound.rarity==="DIVINO"?"💎":sound.rarity==="SECRET"?"🌌":"♫";
-    const title = document.createElement("h3");
-    title.textContent = sound.name;
-    const meta = document.createElement("div");
-    meta.className = "meta";
-    meta.textContent = `${sound.category} · ${sound.rarity}`;
-    const audio = document.createElement("audio");
-    audio.controls = true;
-    audio.preload = "none";
-    audio.src = sound.url;
-    const actions = document.createElement("div");
-    actions.className = "actions";
-    const download = document.createElement("button");
-    download.textContent = "⬇ DESCARGAR";
-    download.onclick = ()=>{
-      const link = document.createElement("a");
-      link.href = sound.url;
-      link.download = `${sound.name}.audio`;
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.click();
-    };
-    actions.appendChild(download);
-    if(neonOwnerToken){
-      const remove = document.createElement("button");
-      remove.className = "delete";
-      remove.textContent = "ELIMINAR";
-      remove.onclick = async()=>{
-        if(!confirm(`¿Eliminar "${sound.name}"?`)) return;
-        try{
-          await neonAdminRequest("delete",{path:sound.path},neonOwnerToken);
-          ownerStatus.textContent = "Sonido eliminado.";
-          await loadSounds();
-        }catch(error){ownerStatus.textContent = error.message;}
-      };
-      actions.appendChild(remove);
-    }
-    card.append(icon,title,meta,audio,actions);
-    grid.appendChild(card);
-  });
-}
-
-document.getElementById("loginForm").addEventListener("submit",async event=>{
-  event.preventDefault();
-  const password = document.getElementById("ownerPassword").value;
-  const button = document.getElementById("loginButton");
-  button.disabled = true;
-  loginStatus.textContent = "Comprobando contraseña...";
-  try{
-    const result = await neonAdminRequest("login",{password});
-    neonOwnerToken = result.token;
-    document.getElementById("ownerPassword").value = "";
-    document.getElementById("loginForm").classList.add("owner-hidden");
-    document.getElementById("ownerTools").classList.remove("owner-hidden");
-    loginStatus.textContent = "";
-    ownerStatus.textContent = "Acceso OWNER concedido.";
-    render();
-    clearTimeout(sessionTimer);
-    sessionTimer = setTimeout(logoutOwner,30*60*1000);
-  }catch(error){
-    loginStatus.textContent = error.message || "No se pudo iniciar sesión.";
-  }finally{button.disabled=false;}
-});
-
-function logoutOwner(){
-  neonOwnerToken = "";
-  clearTimeout(sessionTimer);
-  document.getElementById("ownerTools").classList.add("owner-hidden");
-  document.getElementById("loginForm").classList.remove("owner-hidden");
-  ownerStatus.textContent = "Sesión cerrada.";
-  render();
-}
-
-document.getElementById("logoutButton").addEventListener("click",logoutOwner);
-
-document.getElementById("uploadButton").addEventListener("click",async()=>{
-  const file = document.getElementById("fileInput").files[0];
-  const displayName = document.getElementById("soundName").value.trim() || (file?file.name.replace(/\.[^.]+$/,""):"");
-  const category = document.getElementById("gameCategory").value;
-  const rarity = document.getElementById("rarity").value;
-  if(!neonOwnerToken){ownerStatus.textContent="Inicia sesión como OWNER.";return;}
-  if(!file){ownerStatus.textContent="Selecciona un archivo de audio.";return;}
-  if(file.size>15*1024*1024){ownerStatus.textContent="El archivo supera el límite de 15 MB.";return;}
-  const allowed = ["mp3","wav","ogg","m4a"];
-  const ext = file.name.split(".").pop().toLowerCase();
-  if(!allowed.includes(ext)){ownerStatus.textContent="Formato no permitido. Usa MP3, WAV, OGG o M4A.";return;}
-  const button = document.getElementById("uploadButton");
-  button.disabled = true;
-  ownerStatus.textContent = "Subiendo sonido...";
-  try{
-    const form = new FormData();
-    form.append("file",file);
-    form.append("displayName",displayName);
-    form.append("category",category);
-    form.append("rarity",rarity);
-    await neonAdminRequest("upload",form,neonOwnerToken);
-    document.getElementById("fileInput").value = "";
-    document.getElementById("soundName").value = "";
-    ownerStatus.textContent = "¡Sonido publicado correctamente!";
-    await loadSounds();
-  }catch(error){
-    ownerStatus.textContent = `No se pudo subir: ${error.message}`;
-  }finally{button.disabled=false;}
-});
-
-search.addEventListener("input",render);
-sort.addEventListener("change",render);
-
-makeCategories();
-loadGameCovers();
+renderGames();
+renderCategories();
 loadSounds();
 </script>
 </body>
