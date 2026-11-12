@@ -676,5 +676,76 @@ sort.addEventListener("change",render);
 })();
 </script>
 
+const SUPABASE_URL = "TU_PROJECT_URL";
+const SUPABASE_PUBLISHABLE_KEY = "TU_PUBLISHABLE_KEY";
+
+const NEON_ADMIN_URL =
+  `${SUPABASE_URL}/functions/v1/neon-admin`;
+
+let neonOwnerToken = "";
+
+async function neonAdminRequest(action, body, token = "") {
+  const headers = {
+    apikey: SUPABASE_PUBLISHABLE_KEY,
+    "x-neon-action": action
+  };
+
+  if (token) {
+    headers.authorization = `Bearer ${token}`;
+  }
+
+  let requestBody = body;
+
+  if (body instanceof FormData) {
+    requestBody = body;
+  } else if (body !== undefined) {
+    headers["Content-Type"] = "application/json";
+    requestBody = JSON.stringify(body);
+  }
+
+  const response = await fetch(NEON_ADMIN_URL, {
+    method: "POST",
+    headers,
+    body: requestBody
+  });
+
+  const result = await response.json();
+
+  if (!response.ok) {
+    throw new Error(result.error || "Error de NEON ADMIN");
+  }
+
+  return result;
+}
+
+async function neonLogin(password) {
+  const result = await neonAdminRequest("login", { password });
+  neonOwnerToken = result.token;
+  return result;
+}
+
+async function neonUpload(file) {
+  if (!neonOwnerToken) throw new Error("Inicia sesión primero");
+
+  const form = new FormData();
+  form.append("file", file);
+
+  return await neonAdminRequest(
+    "upload",
+    form,
+    neonOwnerToken
+  );
+}
+
+async function neonDelete(path) {
+  if (!neonOwnerToken) throw new Error("Inicia sesión primero");
+
+  return await neonAdminRequest(
+    "delete",
+    { path },
+    neonOwnerToken
+  );
+}
+
 </body>
 </html>
