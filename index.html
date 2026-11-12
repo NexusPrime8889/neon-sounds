@@ -5,740 +5,554 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEON SOUND MARKET</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
 <style>
 :root{
-  --bg:#090a19;
-  --panel:#19182f;
-  --blue:#00b7ff;
-  --cyan:#00efff;
-  --green:#72ff19;
-  --text:#fff;
-  --muted:#c0bdd9;
+  --bg:#090b16;--panel:#151a2d;--panel2:#1d2540;
+  --blue:#00c8ff;--purple:#8b5cf6;--green:#39f59b;
+  --white:#fff;--muted:#aab4d0;--border:#05060c;
 }
-
 *{box-sizing:border-box}
-
 body{
-  margin:0;
-  min-height:100vh;
-  color:var(--text);
-  font-family:Montserrat,sans-serif;
-  background-color:var(--bg);
-  background-image:radial-gradient(circle at 5px 5px,#393651 1.7px,transparent 2.5px);
-  background-size:12px 12px;
+  margin:0;background:
+  radial-gradient(circle at 15% 0%,#14284b 0,transparent 35%),
+  radial-gradient(circle at 90% 10%,#281447 0,transparent 30%),var(--bg);
+  color:var(--white);font-family:'Montserrat',sans-serif;
 }
-
-/* TEXTURA STUDS */
-.studs{
-  background-color:#19182f;
-  background-image:radial-gradient(circle at 5px 5px,#393651 1.7px,transparent 2.5px);
-  background-size:12px 12px;
-}
-
-/* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:20;
-  padding:15px 5%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  flex-wrap:wrap;
-  gap:15px;
-  background:#090b19;
-  border-bottom:4px solid #000;
-  box-shadow:0 4px 0 var(--blue),0 8px 25px #00b7ff30;
+  padding:18px 5%;display:flex;align-items:center;
+  justify-content:space-between;gap:15px;flex-wrap:wrap;
+  background:#0c1020;border-bottom:3px solid #02030a;
+  box-shadow:0 5px 0 #000;
 }
-
-.logo{
-  font-size:21px;
-  font-weight:900;
-  text-shadow:2px 2px #000;
+.logo{font-size:22px;font-weight:900;letter-spacing:1px}
+.logo span{color:var(--blue)}
+nav{display:flex;gap:9px;flex-wrap:wrap}
+button,.btn{
+  border:3px solid #03040a;border-radius:12px;
+  padding:11px 16px;font-family:inherit;font-weight:900;
+  cursor:pointer;color:white;background:var(--panel2);
+  box-shadow:0 4px 0 #03040a;transition:.15s;
 }
-
-.logo span{color:var(--cyan)}
-
-nav{display:flex;gap:10px;flex-wrap:wrap}
-
-button{
-  font-family:Montserrat,sans-serif;
-  font-weight:900;
-  color:white;
-  cursor:pointer;
-  border:3px solid #05050b;
-  border-radius:5px;
-  padding:11px 16px;
-  background:linear-gradient(#168bff,#0056c9);
-  box-shadow:0 4px 0 #002d68;
-  text-shadow:1px 2px #000;
-}
-
-button:hover{filter:brightness(1.2);transform:translateY(-2px)}
-
-main{max-width:1250px;margin:auto;padding:30px 20px}
-
-/* HERO */
+button:hover,.btn:hover{transform:translateY(-2px);filter:brightness(1.15)}
+button:active,.btn:active{transform:translateY(2px);box-shadow:0 1px 0 #03040a}
+.primary{background:linear-gradient(135deg,#087cff,#00c8ff);color:#00111d}
+.green{background:linear-gradient(135deg,#19c878,#39f59b);color:#002415}
+.purple{background:linear-gradient(135deg,#7139d7,#a879ff)}
+main{max-width:1250px;margin:auto;padding:25px 18px 60px}
 .hero{
-  text-align:center;
-  padding:40px 15px;
-  margin-bottom:30px;
-  border:4px solid #000;
-  background-color:#17172e;
-  background-image:radial-gradient(circle at 5px 5px,#42405c 1.8px,transparent 2.5px);
-  background-size:12px 12px;
-  box-shadow:0 5px 0 var(--blue),0 12px 30px #0008;
+  padding:35px 25px;margin:12px 0 25px;text-align:center;
+  border:3px solid #03040a;border-radius:22px;
+  background:linear-gradient(135deg,#172b50,#21153c);
+  box-shadow:0 7px 0 #03040a;
 }
-
-.hero h1{
-  font-size:clamp(30px,6vw,55px);
-  font-weight:900;
-  margin:0 0 12px;
-  color:white;
-  -webkit-text-stroke:1px #000;
-  text-shadow:3px 3px #000,5px 5px #003d75,0 0 20px var(--blue);
+.hero h1{font-size:clamp(28px,5vw,48px);margin:0 0 10px;font-weight:900}
+.hero h1 span{color:var(--blue)}
+.hero p{color:var(--muted);font-weight:600}
+.section-title{font-size:23px;font-weight:900;margin:28px 0 15px}
+.panel{
+  background:var(--panel);border:3px solid #03040a;
+  border-radius:17px;padding:18px;margin-bottom:20px;
+  box-shadow:0 5px 0 #03040a;
 }
-
-.hero h1 span{color:var(--cyan)}
-
-.hero p{
-  color:#e0e6ff;
-  font-weight:800;
-  text-shadow:1px 2px #000;
-}
-
-.searchbar{width:min(650px,100%);margin:25px auto 0}
-
 input,select{
-  width:100%;
-  padding:14px;
-  border:3px solid #05050b;
-  border-radius:5px;
-  background:#252440;
-  color:white;
-  font-family:Montserrat,sans-serif;
-  font-weight:700;
-  outline:none;
+  width:100%;padding:13px;border-radius:10px;
+  border:2px solid #05060c;background:#090e1d;color:white;
+  font-family:inherit;font-weight:600;outline:none;
 }
-
-input:focus,select:focus{
-  border-color:var(--cyan);
-  box-shadow:0 0 12px #00b7ff70;
-}
-
-input::placeholder{color:#aaa8c7}
-
-/* TITULOS */
-.section-title{
-  display:block;
-  width:fit-content;
-  max-width:100%;
-  padding:10px 18px;
-  margin:35px 0 20px;
-  font-size:19px;
-  font-weight:900;
-  color:white;
-  background:linear-gradient(90deg,#006bc9,#123e91);
-  border:3px solid #05050b;
-  box-shadow:0 4px 0 #001d49,0 0 12px #00b7ff50;
-  text-shadow:2px 2px #000;
-}
-
-/* JUEGOS */
+input:focus,select:focus{border-color:var(--blue)}
+.search{margin:12px 0 18px}
 .games{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
-  gap:15px;
-}
-
-.game{
-  overflow:hidden;
-  cursor:pointer;
-  background:#19182f;
-  border:4px solid #05050b;
-  box-shadow:0 4px 0 #003b75,0 0 12px #00b7ff25;
-  transition:.2s;
-}
-
-.game:hover{
-  transform:translateY(-4px);
-  border-color:var(--blue);
-}
-
-.game-cover{
-  width:100%;
-  height:125px;
-  display:block;
-  object-fit:cover;
-  background:#20203b;
-}
-
-.game-fallback{
-  width:100%;
-  height:125px;
-  display:grid;
-  place-items:center;
-  font-size:45px;
-  background-color:#1b1a35;
-  background-image:radial-gradient(circle,#45415f 1.5px,transparent 2px);
-  background-size:10px 10px;
-}
-
-.game-name{
-  padding:12px 7px;
-  text-align:center;
-  font-size:12px;
-  font-weight:900;
-  text-shadow:2px 2px #000;
-}
-
-/* CATEGORIAS */
-.categories{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-bottom:25px;
-}
-
-.category{background:#24213f}
-
-.category.active{
-  background:linear-gradient(#8aff30,#36b900);
-  color:#071300;
-  text-shadow:none;
-  box-shadow:0 4px 0 #176400;
-}
-
-/* BIBLIOTECA */
-.sounds{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-  gap:17px;
-}
-
-.sound{
-  padding:17px;
-  background-color:#19182f;
-  background-image:radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
-  background-size:11px 11px;
-  border:4px solid #05050b;
-  box-shadow:0 4px 0 #004b91,0 0 14px #00b7ff20;
-}
-
-.sound h3{
-  margin:0 0 9px;
-  font-size:15px;
-  font-weight:900;
-  text-shadow:2px 2px #000;
-  overflow-wrap:anywhere;
-}
-
-.sound small{
-  color:var(--cyan);
-  font-weight:800;
-}
-
-.sound audio{width:100%;margin-top:15px}
-
-.sound-actions{
-  display:flex;
-  justify-content:space-between;
-  margin-top:13px;
-}
-
-.sound-actions a{
-  color:var(--cyan);
-  font-size:12px;
-  font-weight:900;
-  text-decoration:none;
-}
-
-/* SUBIR */
-.upload-box{
-  margin-top:45px;
-  padding:25px;
-  background-color:#19182f;
-  background-image:radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
-  background-size:11px 11px;
-  border:4px solid #05050b;
-  box-shadow:0 5px 0 var(--blue),0 0 25px #00b7ff25;
-}
-
-.upload-box h2{
-  margin-top:0;
-  font-weight:900;
-  text-shadow:2px 2px #000;
-}
-
-.upload-box p{color:var(--muted);font-weight:600}
-
-.form-grid{
-  display:grid;
-  grid-template-columns:1fr 1fr;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
   gap:13px;
 }
-
-.form-grid .full{grid-column:1/-1}
-
-.form-grid button{
-  background:linear-gradient(#8aff30,#38c500);
-  color:#071300;
-  text-shadow:1px 1px #baff91;
-  box-shadow:0 4px 0 #176400;
+.game{
+  min-height:150px;background:var(--panel2);
+  border:3px solid #03040a;border-radius:14px;padding:10px;
+  text-align:center;font-weight:900;overflow:hidden;
 }
-
-#status{
-  color:var(--cyan);
-  font-size:13px;
-  font-weight:800;
-  margin-top:16px;
-  overflow-wrap:anywhere;
+.game img{width:100%;height:100px;object-fit:cover;border-radius:9px;margin-bottom:8px}
+.game .emoji{font-size:55px;height:100px;display:grid;place-items:center}
+.sound-list,.photo-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));
+  gap:14px;
 }
-
-.empty{
-  color:#c2bfdc;
-  text-align:center;
-  padding:35px;
-  font-weight:700;
-  background:#15142a;
-  border:3px solid #05050b;
+.sound-card,.photo-card{
+  background:var(--panel2);border:3px solid #03040a;
+  border-radius:15px;padding:13px;box-shadow:0 4px 0 #03040a;
+  min-width:0;
 }
-
-footer{
-  text-align:center;
-  padding:30px;
-  color:#aaa8c7;
-  font-size:12px;
-  font-weight:700;
+.sound-card h3,.photo-card h3{font-size:15px;overflow-wrap:anywhere}
+.sound-card p,.photo-card p{font-size:12px;color:var(--muted);font-weight:600}
+audio{width:100%;margin:8px 0}
+.photo-card img{
+  width:100%;height:190px;object-fit:cover;
+  border-radius:10px;background:#080b16;
 }
-
+.photo-actions{display:flex;gap:8px;margin-top:10px}
+.photo-actions a{flex:1;text-align:center;text-decoration:none}
+.photo-actions button{width:100%;padding:9px;font-size:12px}
+.upload-area{
+  border:2px dashed var(--blue);border-radius:13px;
+  padding:18px;background:#0b1427;margin-top:12px;
+}
+.upload-area button{margin-top:12px}
+.status{font-size:13px;color:var(--green);font-weight:800;margin-top:12px}
+.muted{color:var(--muted)}
+.hidden{display:none!important}
+footer{text-align:center;color:#77829e;padding:25px;font-size:12px}
+.back{margin-bottom:15px}
 @media(max-width:600px){
-  header{justify-content:center}
-  .form-grid{grid-template-columns:1fr}
-  .form-grid .full{grid-column:auto}
+  header{justify-content:center;text-align:center}
+  nav{justify-content:center}
+  .hero{padding:25px 15px}
 }
 </style>
 </head>
-
 <body>
 
 <header>
   <div class="logo">NEON <span>SOUND MARKET</span></div>
   <nav>
-    <button onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">BIBLIOTECA</button>
-    <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})">SUBIR SONIDO</button>
+    <button onclick="showPage('home')">🔊 SONIDOS</button>
+    <button class="primary" onclick="showPage('photos')">📸 SUBIR FOTO</button>
   </nav>
 </header>
 
 <main>
+  <!-- PÁGINA PRINCIPAL -->
+  <section id="homePage">
+    <div class="hero">
+      <h1>NEON <span>SOUND MARKET</span></h1>
+      <p>Tu biblioteca pública de sonidos de Roblox</p>
+      <button class="primary" onclick="showPage('photos')">📸 ENTRAR A NEON PHOTO MARKET</button>
+    </div>
 
-<section class="hero">
-  <h1>NEON <span>SOUND MARKET</span></h1>
-  <p>DESCUBRE · ESCUCHA · COMPARTE SONIDOS DE ROBLOX</p>
-  <div class="searchbar">
-    <input id="search" placeholder="Buscar sonidos..." oninput="renderSounds()">
-  </div>
-</section>
+    <div class="section-title">🎮 JUEGOS</div>
+    <div class="games">
+      <div class="game">
+        <div class="emoji">🥚</div>
+        STEAL AN EGG
+      </div>
+      <div class="game">
+        <div class="emoji">🧠</div>
+        STEAL A BRAINROT
+      </div>
+      <div class="game">
+        <div class="emoji">🔪</div>
+        MURDER MYSTERY 2
+      </div>
+      <div class="game">
+        <div class="emoji">🏡</div>
+        BROOKHAVEN
+      </div>
+      <div class="game">
+        <div class="emoji">🐶</div>
+        ADOPT ME
+      </div>
+      <div class="game">
+        <div class="emoji">🍎</div>
+        BLOX FRUITS
+      </div>
+    </div>
 
-<h2 class="section-title">🎮 JUEGOS</h2>
-<div class="games" id="games"></div>
+    <div class="section-title">🔍 BUSCAR SONIDOS</div>
+    <input id="soundSearch" class="search" placeholder="Buscar por nombre, juego o rareza..." oninput="renderSounds()">
 
-<section id="library">
-  <h2 class="section-title">🎵 BIBLIOTECA DE SONIDOS</h2>
-  <div class="categories" id="categories"></div>
-  <div class="sounds" id="sounds">
-    <div class="empty">Cargando biblioteca...</div>
-  </div>
-</section>
+    <div class="section-title">🎧 BIBLIOTECA DE SONIDOS</div>
+    <div id="soundList" class="sound-list">
+      <p class="muted">Cargando sonidos...</p>
+    </div>
 
-<section class="upload-box" id="upload">
-  <h2>⬆ SUBIR UN SONIDO</h2>
-  <p>COMPARTE TUS SONIDOS CON TODA LA COMUNIDAD.</p>
+    <div class="section-title">⬆️ SUBIR UN SONIDO</div>
+    <div class="panel">
+      <form id="soundForm">
+        <p class="muted">Comparte un sonido con la comunidad.</p>
+        <input id="soundTitle" placeholder="Nombre del sonido" required>
+        <br><br>
+        <select id="soundGame" required>
+          <option value="">Selecciona un juego</option>
+          <option>Steal an Egg</option>
+          <option>Steal a Brainrot</option>
+          <option>Murder Mystery 2</option>
+          <option>Brookhaven</option>
+          <option>Adopt Me</option>
+          <option>Blox Fruits</option>
+          <option>Otros juegos</option>
+        </select>
+        <br><br>
+        <input id="soundRarity" placeholder="Rareza o categoría (opcional)">
+        <br><br>
+        <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*" required>
+        <div class="upload-area">
+          <button class="green" type="submit">⬆️ PUBLICAR SONIDO</button>
+          <div id="soundStatus" class="status"></div>
+        </div>
+      </form>
+    </div>
+  </section>
 
-  <div class="form-grid">
-    <input id="soundName" placeholder="Nombre del sonido">
+  <!-- NEON PHOTO MARKET -->
+  <section id="photosPage" class="hidden">
+    <button class="back" onclick="showPage('home')">← VOLVER A SONIDOS</button>
 
-    <select id="gameSelect">
-      <option>Steal an Egg</option>
-      <option>Steal a Brainrot</option>
-      <option>Murder Mystery 2</option>
-      <option>Brookhaven</option>
-      <option>Adopt Me!</option>
-      <option>Blox Fruits</option>
-      <option>Otros juegos</option>
-    </select>
+    <div class="hero">
+      <h1>NEON <span>PHOTO MARKET</span></h1>
+      <p>Sube, comparte y descarga imágenes de la comunidad.</p>
+    </div>
 
-    <select id="rarity">
-      <option>Normal</option>
-      <option>Rare</option>
-      <option>Epic</option>
-      <option>Legendary</option>
-      <option>Secret</option>
-      <option>Eternal</option>
-      <option>Divino</option>
-    </select>
+    <div class="section-title">📸 PUBLICAR UNA FOTO</div>
+    <div class="panel">
+      <form id="photoForm">
+        <input id="photoTitle" placeholder="Nombre de la foto" maxlength="70" required>
+        <br><br>
+        <input id="photoFile" type="file"
+          accept="image/png,image/jpeg,image/webp,image/gif" required>
+        <p class="muted">Formatos: PNG, JPG, JPEG, WEBP y GIF animado. Máximo 10 MB.</p>
+        <div id="photoPreview"></div>
+        <div class="upload-area">
+          <button class="green" type="submit">📤 SUBIR FOTO</button>
+          <div id="photoStatus" class="status"></div>
+        </div>
+      </form>
+    </div>
 
-    <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*">
-
-    <button class="full" onclick="uploadSound()">PUBLICAR SONIDO</button>
-  </div>
-
-  <div id="status"></div>
-</section>
-
+    <div class="section-title">🌎 GALERÍA PÚBLICA</div>
+    <input id="photoSearch" class="search" placeholder="Buscar fotos..." oninput="renderPhotos()">
+    <div id="photoGrid" class="photo-grid">
+      <p class="muted">Cargando fotos...</p>
+    </div>
+  </section>
 </main>
 
-<footer>NEON SOUND MARKET · ROBLOX SOUND COMMUNITY</footer>
+<footer>NEON SOUND MARKET · NEON PHOTO MARKET · Comunidad Roblox</footer>
 
 <script>
+/* CONFIGURACIÓN SUPABASE */
 const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co";
 const SUPABASE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
 const BUCKET = "neon-sounds";
 
-/* PORTADAS DE LOS JUEGOS */
-const games = [
-  {
-    name:"Steal an Egg",
-    image:"steal-an-egg.png",
-    emoji:"🥚"
-  },
-  {
-    name:"Steal a Brainrot",
-    image:"steal-a-brainrot.webp",
-    emoji:"🧠"
-  },
-  {
-    name:"Murder Mystery 2",
-    placeId:142823291,
-    emoji:"🔪"
-  },
-  {
-    name:"Brookhaven",
-    placeId:4924922222,
-    emoji:"🏡"
-  },
-  {
-    name:"Adopt Me!",
-    placeId:920587237,
-    emoji:"🐶"
-  },
-  {
-    name:"Blox Fruits",
-    placeId:2753915549,
-    emoji:"🍎"
-  },
-  {
-    name:"Otros juegos",
-    emoji:"🎮"
-  }
-];
+const headers = {
+  apikey: SUPABASE_KEY,
+  Authorization: "Bearer " + SUPABASE_KEY
+};
 
-let allSounds=[];
-let selectedGame="Todos";
+let sounds = [];
+let photos = [];
 
-function headers(){
-  return {
-    apikey:SUPABASE_KEY,
-    Authorization:"Bearer "+SUPABASE_KEY
-  };
+function showPage(page){
+  document.getElementById("homePage").classList.toggle("hidden",page !== "home");
+  document.getElementById("photosPage").classList.toggle("hidden",page !== "photos");
+  location.hash = page === "photos" ? "fotos" : "sonidos";
+  if(page === "photos") loadPhotos();
+  window.scrollTo({top:0,behavior:"smooth"});
 }
 
-function textSlug(text){
-  return text.normalize("NFD")
-    .replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g,"-")
-    .replace(/^-|-$/g,"")
-    .slice(0,50);
+function safeText(value){
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#039;"
+  })[char]);
 }
 
-function showStatus(message){
-  document.getElementById("status").textContent=message;
+function publicUrl(path){
+  return SUPABASE_URL + "/storage/v1/object/public/" +
+    BUCKET + "/" + path.split("/").map(encodeURIComponent).join("/");
 }
 
-/* PORTADA DE RESPALDO */
-function showFallback(container,emoji){
-  const fallback=document.createElement("div");
-  fallback.className="game-fallback";
-  fallback.textContent=emoji||"🎮";
-  container.replaceChildren(fallback);
+function fileExtension(file){
+  return file.name.split(".").pop().toLowerCase();
 }
 
-/* CARGAR PORTADAS */
-function renderGames(){
-  const root=document.getElementById("games");
-  root.innerHTML="";
-
-  games.forEach(game=>{
-    const card=document.createElement("div");
-    card.className="game";
-
-    const name=document.createElement("div");
-    name.className="game-name";
-    name.textContent=game.name;
-
-    const cover=document.createElement("img");
-    cover.className="game-cover";
-    cover.alt="Portada de "+game.name;
-    cover.loading="lazy";
-
-    card.appendChild(cover);
-    card.appendChild(name);
-
-    /* Imágenes guardadas en GitHub */
-    if(game.image){
-      cover.src=game.image;
-      cover.onerror=()=>showFallback(card,game.emoji);
-    }
-
-    /* Portadas obtenidas de Roblox */
-    else if(game.placeId){
-      showFallback(card,game.emoji);
-
-      fetch(
-        `https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${game.placeId}&size=512x512&format=Png&isCircular=false`
-      )
-      .then(response=>{
-        if(!response.ok) throw new Error("Thumbnail no disponible");
-        return response.json();
-      })
-      .then(data=>{
-        const imageUrl=data.data?.[0]?.imageUrl;
-
-        if(imageUrl){
-          cover.src=imageUrl;
-          card.replaceChildren(cover,name);
-        }
-      })
-      .catch(error=>console.warn("Portada:",game.name,error));
-    }
-
-    else{
-      showFallback(card,game.emoji);
-    }
-
-    card.onclick=()=>{
-      selectedGame=game.name;
-      renderCategories();
-      renderSounds();
-      document.getElementById("library").scrollIntoView({behavior:"smooth"});
-    };
-
-    root.appendChild(card);
-  });
-}
-
-/* CATEGORIAS */
-function renderCategories(){
-  const root=document.getElementById("categories");
-  root.innerHTML="";
-
-  ["Todos",...games.map(g=>g.name)].forEach(name=>{
-    const button=document.createElement("button");
-    button.className="category"+(selectedGame===name?" active":"");
-    button.textContent=name;
-
-    button.onclick=()=>{
-      selectedGame=name;
-      renderCategories();
-      renderSounds();
-    };
-
-    root.appendChild(button);
-  });
-}
-
-/* LEER NOMBRE DE ARCHIVO */
-function parseFileName(name){
-  const parts=name.split("--");
-
-  const gameSlug=parts.length>=3?parts[0]:"otros-juegos";
-  const matchedGame=games.find(g=>textSlug(g.name)===gameSlug);
-
-  return {
-    game:matchedGame?matchedGame.name:"Otros juegos",
-    rarity:parts.length>=3?parts[1]:"Normal",
-    title:parts.length>=3?parts.slice(2).join("--"):name
-  };
-}
-
-/* CARGAR BIBLIOTECA */
+/* SONIDOS */
 async function loadSounds(){
+  const list = document.getElementById("soundList");
   try{
-    const response=await fetch(
-      `${SUPABASE_URL}/storage/v1/object/list/${BUCKET}`,
+    const response = await fetch(
+      SUPABASE_URL + "/storage/v1/object/list/" + BUCKET,
       {
         method:"POST",
-        headers:{
-          ...headers(),
-          "Content-Type":"application/json"
-        },
+        headers:{...headers,"Content-Type":"application/json"},
         body:JSON.stringify({
           prefix:"",
-          limit:500,
+          limit:200,
           offset:0,
           sortBy:{column:"created_at",order:"desc"}
         })
       }
     );
 
-    if(!response.ok){
-      throw new Error("No se pudo leer el bucket ("+response.status+")");
-    }
+    if(!response.ok) throw new Error(await response.text());
 
-    const files=await response.json();
-
-    allSounds=files
-      .filter(file=>file.name&&!file.name.startsWith("."))
-      .map(file=>{
-        const meta=parseFileName(file.name);
-
-        return {
-          ...meta,
-          file:file.name,
-          url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${file.name.split("/").map(encodeURIComponent).join("/")}`,
-          date:file.created_at||file.updated_at||""
-        };
-      });
+    const files = await response.json();
+    sounds = files
+      .filter(file => file.name && /\.(mp3|wav|ogg|m4a)$/i.test(file.name))
+      .map(file => ({
+        name:file.name,
+        url:publicUrl(file.name)
+      }));
 
     renderSounds();
-
   }catch(error){
-    document.getElementById("sounds").innerHTML=
-      '<div class="empty">No se pudo cargar la biblioteca. Comprueba las políticas SELECT de Supabase.</div>';
-
+    list.innerHTML = '<p class="muted">No se pudieron cargar los sonidos. Revisa las políticas de Supabase.</p>';
     console.error(error);
   }
 }
 
-/* MOSTRAR SONIDOS */
 function renderSounds(){
-  const root=document.getElementById("sounds");
-  const query=document.getElementById("search").value.toLowerCase().trim();
+  const list = document.getElementById("soundList");
+  const query = (document.getElementById("soundSearch").value || "").toLowerCase();
 
-  const filtered=allSounds.filter(sound=>
-    (selectedGame==="Todos"||
-      sound.game.toLowerCase()===selectedGame.toLowerCase())&&
-    (
-      sound.title.toLowerCase().includes(query)||
-      sound.game.toLowerCase().includes(query)||
-      sound.rarity.toLowerCase().includes(query)
-    )
-  );
-
-  root.innerHTML="";
+  const filtered = sounds.filter(sound => sound.name.toLowerCase().includes(query));
 
   if(!filtered.length){
-    root.innerHTML='<div class="empty">TODAVÍA NO HAY SONIDOS EN ESTA CATEGORÍA.</div>';
+    list.innerHTML = '<p class="muted">Todavía no hay sonidos publicados.</p>';
     return;
   }
 
-  filtered.forEach(sound=>{
-    const card=document.createElement("article");
-    card.className="sound";
-
-    const title=document.createElement("h3");
-    title.textContent=sound.title;
-
-    const info=document.createElement("small");
-    info.textContent=sound.game+" · "+sound.rarity;
-
-    const audio=document.createElement("audio");
-    audio.controls=true;
-    audio.preload="none";
-    audio.src=sound.url;
-
-    const actions=document.createElement("div");
-    actions.className="sound-actions";
-
-    const download=document.createElement("a");
-    download.href=sound.url;
-    download.download=sound.file;
-    download.textContent="⬇ DESCARGAR";
-
-    actions.appendChild(download);
-    card.append(title,info,audio,actions);
-    root.appendChild(card);
-  });
+  list.innerHTML = filtered.map(sound => {
+    const title = sound.name.replace(/\.[^.]+$/,"").replace(/--/g," · ").replace(/-/g," ");
+    return `
+      <article class="sound-card">
+        <h3>🔊 ${safeText(title)}</h3>
+        <audio controls preload="none" src="${safeText(sound.url)}"></audio>
+        <a class="btn primary" href="${safeText(sound.url)}" download>⬇ DESCARGAR</a>
+      </article>`;
+  }).join("");
 }
 
-/* SUBIR SONIDOS */
-async function uploadSound(){
-  const name=document.getElementById("soundName").value.trim();
-  const game=document.getElementById("gameSelect").value;
-  const rarity=document.getElementById("rarity").value;
-  const file=document.getElementById("soundFile").files[0];
+document.getElementById("soundForm").addEventListener("submit",async event=>{
+  event.preventDefault();
 
-  if(!name||!file){
-    showStatus("Escribe un nombre y selecciona un archivo.");
+  const status = document.getElementById("soundStatus");
+  const file = document.getElementById("soundFile").files[0];
+  const title = document.getElementById("soundTitle").value.trim();
+  const game = document.getElementById("soundGame").value;
+  const rarity = document.getElementById("soundRarity").value.trim();
+
+  if(!file || !title || !game) return;
+  if(file.size > 15*1024*1024){
+    status.textContent = "El archivo supera los 15 MB.";
     return;
   }
 
-  const extension=file.name.split(".").pop().toLowerCase();
-  const allowed=["mp3","wav","ogg","m4a"];
+  status.textContent = "Subiendo sonido...";
+  const extension = fileExtension(file);
+  const slug = value => value.toLowerCase()
+    .normalize("NFD").replace(/[\u0300-\u036f]/g,"")
+    .replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
 
-  if(!allowed.includes(extension)){
-    showStatus("Formato no permitido. Usa MP3, WAV, OGG o M4A.");
-    return;
-  }
-
-  if(file.size>15*1024*1024){
-    showStatus("El archivo supera el límite de 15 MB.");
-    return;
-  }
-
-  const mimeTypes={
-    mp3:"audio/mpeg",
-    wav:"audio/wav",
-    ogg:"audio/ogg",
-    m4a:"audio/mp4"
-  };
-
-  const fileName=
-    `${textSlug(game)}--${rarity.toLowerCase()}--${textSlug(name)}-${crypto.randomUUID()}.${extension}`;
-
-  showStatus("SUBIENDO SONIDO...");
+  const filename = slug(game) + "--" + slug(rarity || "sonido") +
+    "--" + slug(title) + "-" + crypto.randomUUID() + "." + extension;
 
   try{
-    const response=await fetch(
-      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${encodeURIComponent(fileName)}`,
+    const response = await fetch(
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" + encodeURIComponent(filename),
       {
         method:"POST",
         headers:{
-          ...headers(),
-          "Content-Type":mimeTypes[extension],
+          ...headers,
+          "Content-Type":file.type || "application/octet-stream",
           "x-upsert":"false"
         },
         body:file
       }
     );
 
-    if(!response.ok){
-      const detail=await response.text();
-      throw new Error(detail||"Error "+response.status);
+    if(!response.ok) throw new Error(await response.text());
+
+    status.textContent = "¡Sonido publicado correctamente!";
+    event.target.reset();
+    await loadSounds();
+  }catch(error){
+    console.error(error);
+    status.textContent = "Error al subir. Revisa las políticas de Supabase.";
+  }
+});
+
+/* FOTOS */
+document.getElementById("photoFile").addEventListener("change",event=>{
+  const file = event.target.files[0];
+  const preview = document.getElementById("photoPreview");
+  preview.innerHTML = "";
+
+  if(!file) return;
+
+  const allowed = ["image/png","image/jpeg","image/webp","image/gif"];
+  if(!allowed.includes(file.type)){
+    event.target.value = "";
+    document.getElementById("photoStatus").textContent = "Formato no permitido.";
+    return;
+  }
+
+  if(file.size > 10*1024*1024){
+    event.target.value = "";
+    document.getElementById("photoStatus").textContent = "La foto supera los 10 MB.";
+    return;
+  }
+
+  const image = document.createElement("img");
+  image.src = URL.createObjectURL(file);
+  image.style.cssText = "max-width:100%;max-height:220px;border-radius:12px;margin-top:12px";
+  preview.appendChild(image);
+});
+
+document.getElementById("photoForm").addEventListener("submit",async event=>{
+  event.preventDefault();
+
+  const status = document.getElementById("photoStatus");
+  const title = document.getElementById("photoTitle").value.trim();
+  const file = document.getElementById("photoFile").files[0];
+
+  if(!title || !file) return;
+
+  const allowed = ["image/png","image/jpeg","image/webp","image/gif"];
+  if(!allowed.includes(file.type)){
+    status.textContent = "Formato no permitido.";
+    return;
+  }
+
+  if(file.size > 10*1024*1024){
+    status.textContent = "La foto supera los 10 MB.";
+    return;
+  }
+
+  status.textContent = "Subiendo foto...";
+
+  const extension = fileExtension(file);
+  const filename = "photos/" + crypto.randomUUID() + "." + extension;
+
+  try{
+    const response = await fetch(
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" +
+      filename.split("/").map(encodeURIComponent).join("/"),
+      {
+        method:"POST",
+        headers:{
+          ...headers,
+          "Content-Type":file.type,
+          "x-upsert":"false"
+        },
+        body:file
+      }
+    );
+
+    if(!response.ok) throw new Error(await response.text());
+
+    // Guardamos el título en los metadatos del archivo mediante el nombre.
+    // El nombre se guarda aparte para poder mostrarlo en la galería.
+    const titleKey = "photos/" + filename.split("/").pop() + ".title.txt";
+    const titleResponse = await fetch(
+      SUPABASE_URL + "/storage/v1/object/" + BUCKET + "/" +
+      titleKey.split("/").map(encodeURIComponent).join("/"),
+      {
+        method:"POST",
+        headers:{
+          ...headers,
+          "Content-Type":"text/plain",
+          "x-upsert":"false"
+        },
+        body:title
+      }
+    );
+
+    if(!titleResponse.ok){
+      console.warn("La imagen se subió, pero no se pudo guardar su título.");
     }
 
-    showStatus("¡SONIDO PUBLICADO CORRECTAMENTE!");
-
-    document.getElementById("soundName").value="";
-    document.getElementById("soundFile").value="";
-
-    await loadSounds();
-
+    status.textContent = "¡Foto publicada correctamente!";
+    event.target.reset();
+    document.getElementById("photoPreview").innerHTML = "";
+    await loadPhotos();
   }catch(error){
-    showStatus("ERROR AL SUBIR: "+error.message);
+    console.error(error);
+    status.textContent = "Error al subir la foto. Revisa las políticas de Supabase.";
+  }
+});
+
+async function loadPhotos(){
+  const grid = document.getElementById("photoGrid");
+  grid.innerHTML = '<p class="muted">Cargando fotos...</p>';
+
+  try{
+    const response = await fetch(
+      SUPABASE_URL + "/storage/v1/object/list/" + BUCKET,
+      {
+        method:"POST",
+        headers:{...headers,"Content-Type":"application/json"},
+        body:JSON.stringify({
+          prefix:"photos/",
+          limit:200,
+          offset:0,
+          sortBy:{column:"created_at",order:"desc"}
+        })
+      }
+    );
+
+    if(!response.ok) throw new Error(await response.text());
+
+    const files = await response.json();
+    const imageFiles = files.filter(file =>
+      file.name && /\.(png|jpe?g|webp|gif)$/i.test(file.name)
+    );
+
+    photos = await Promise.all(imageFiles.map(async file=>{
+      const path = "photos/" + file.name;
+      let title = file.name.replace(/\.[^.]+$/,"");
+
+      try{
+        const titlePath = path + ".title.txt";
+        const titleResponse = await fetch(publicUrl(titlePath));
+        if(titleResponse.ok) title = await titleResponse.text();
+      }catch(error){}
+
+      return {
+        name:file.name,
+        title,
+        url:publicUrl(path)
+      };
+    }));
+
+    renderPhotos();
+  }catch(error){
+    console.error(error);
+    grid.innerHTML = '<p class="muted">No se pudieron cargar las fotos. Revisa las políticas de Supabase.</p>';
   }
 }
 
-/* INICIAR */
-renderGames();
-renderCategories();
-loadSounds();
-</script>
+function renderPhotos(){
+  const grid = document.getElementById("photoGrid");
+  const query = (document.getElementById("photoSearch").value || "").toLowerCase();
 
+  const filtered = photos.filter(photo =>
+    photo.title.toLowerCase().includes(query)
+  );
+
+  if(!filtered.length){
+    grid.innerHTML = '<p class="muted">Todavía no hay fotos publicadas.</p>';
+    return;
+  }
+
+  grid.innerHTML = filtered.map(photo=>`
+    <article class="photo-card">
+      <img src="${safeText(photo.url)}" alt="${safeText(photo.title)}" loading="lazy">
+      <h3>${safeText(photo.title)}</h3>
+      <div class="photo-actions">
+        <a href="${safeText(photo.url)}" target="_blank" rel="noopener">
+          <button type="button">👁 VER</button>
+        </a>
+        <a href="${safeText(photo.url)}" download="${safeText(photo.name)}">
+          <button type="button" class="green">⬇ DESCARGAR</button>
+        </a>
+      </div>
+    </article>
+  `).join("");
+}
+
+/* INICIO */
+loadSounds();
+if(location.hash === "#fotos") showPage("photos");
+</script>
 </body>
 </html>
