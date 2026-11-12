@@ -461,13 +461,15 @@ const SUPABASE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
 const BUCKET = "neon-sounds";
 
 const games = [
-  {name:"Steal an Egg",emoji:"🥚"},
-  {name:"Steal a Brainrot",emoji:"🧠"},
-  {name:"Murder Mystery 2",emoji:"🔪"},
-  {name:"Brookhaven",emoji:"🏡"},
-  {name:"Adopt Me!",emoji:"🐶"},
-  {name:"Blox Fruits",emoji:"🍎"},
-  {name:"Otros juegos",emoji:"🎮"}
+  
+const games = [
+  {name:"Steal an Egg", image:"steal-an-egg.png", placeId:107778070777162},
+  {name:"Steal a Brainrot", image:"steal-a-brainrot.webp"},
+  {name:"Murder Mystery 2", placeId:142823291},
+  {name:"Brookhaven", placeId:4924922222},
+  {name:"Adopt Me!", placeId:920587237},
+  {name:"Blox Fruits", placeId:2753915549},
+  {name:"Otros juegos", emoji:"🎮"}
 ];
 
 let allSounds=[];
@@ -722,6 +724,66 @@ async function uploadSound(){
 }
 
 renderGames();
+
+async function renderGames(){
+  const root=document.getElementById("games");
+  root.innerHTML="";
+
+  games.forEach(game=>{
+    const card=document.createElement("div");
+    card.className="game";
+
+    const image=document.createElement("img");
+    image.alt=game.name;
+    image.loading="lazy";
+
+    if(game.image){
+      image.src=game.image;
+    }else if(game.placeId){
+      fetch(`https://thumbnails.roblox.com/v1/places/gameicons?placeIds=${game.placeId}&size=512x512&format=Png&isCircular=false`)
+        .then(r=>r.json())
+        .then(data=>{
+          if(data.data?.[0]?.imageUrl){
+            image.src=data.data[0].imageUrl;
+          }
+        })
+        .catch(()=>{});
+    }else{
+      image.src="";
+      image.style.display="none";
+    }
+
+    image.onerror=()=>{
+      image.style.display="none";
+      const fallback=document.createElement("div");
+      fallback.className="game-icon";
+      fallback.textContent=game.emoji||"🎮";
+      card.insertBefore(fallback,name);
+    };
+
+    const name=document.createElement("div");
+    name.textContent=game.name;
+
+    if(game.image||game.placeId){
+      card.append(image,name);
+    }else{
+      const fallback=document.createElement("div");
+      fallback.className="game-icon";
+      fallback.textContent=game.emoji||"🎮";
+      card.append(fallback,name);
+    }
+
+    card.onclick=()=>{
+      selectedGame=game.name;
+      renderCategories();
+      renderSounds();
+      document.getElementById("library").scrollIntoView({behavior:"smooth"});
+    };
+
+    root.appendChild(card);
+  });
+}
+
 renderCategories();
 loadSounds();
 </script>
