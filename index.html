@@ -5,157 +5,455 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NEON SOUND MARKET</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --bg:#050811;
-  --panel:#0c1425;
-  --panel2:#101d33;
+:root{
+  --bg:#080b19;
+  --panel:#17172d;
+  --panel2:#20203b;
   --blue:#00b7ff;
-  --cyan:#00f0ff;
-  --text:#f2f8ff;
-  --muted:#8da4bd;
-  --border:#173653;
+  --cyan:#00efff;
+  --green:#72ff19;
+  --purple:#862dff;
+  --text:#fff;
+  --muted:#c0bdd9;
+  --black:#05050b;
 }
+
+/* BASE */
 *{box-sizing:border-box}
+
 body{
-  margin:0;background:radial-gradient(ellipse at top,#102b48 0,#050811 55%);
-  color:var(--text);font-family:Montserrat,sans-serif;min-height:100vh;
+  margin:0;
+  min-height:100vh;
+  color:var(--text);
+  font-family:Montserrat,sans-serif;
+  background-color:#090a19;
+  background-image:
+    radial-gradient(circle at 8px 8px,#373451 2px,transparent 2.8px),
+    radial-gradient(circle at 8px 8px,#17172d 5px,transparent 5.8px);
+  background-size:16px 16px;
 }
+
+/* TEXTURA STUDS */
+.studs{
+  background-color:#17172d;
+  background-image:
+    radial-gradient(circle at 4px 4px,#45415f 1.7px,transparent 2.4px),
+    radial-gradient(circle at 4px 4px,#101020 4px,transparent 4.8px);
+  background-size:12px 12px;
+}
+
+/* HEADER */
 header{
-  padding:24px 5%;display:flex;align-items:center;justify-content:space-between;
-  gap:15px;flex-wrap:wrap;border-bottom:1px solid var(--border);
-  background:#050811dd;position:sticky;top:0;z-index:5;backdrop-filter:blur(15px);
+  position:sticky;
+  top:0;
+  z-index:20;
+  padding:15px 5%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:15px;
+  background:#090b19;
+  border-bottom:4px solid var(--black);
+  box-shadow:0 4px 0 var(--blue),0 8px 25px #00b7ff30;
 }
-.logo{font-size:22px;font-weight:900;letter-spacing:1px}
-.logo span{color:var(--cyan);text-shadow:0 0 15px var(--blue)}
+
+.logo{
+  font-size:21px;
+  font-weight:900;
+  letter-spacing:-1px;
+  text-shadow:2px 2px 0 #000;
+}
+
+.logo span{color:var(--cyan)}
+
 nav{display:flex;gap:10px;flex-wrap:wrap}
+
+/* BOTONES */
 button,.button{
-  border:1px solid var(--blue);background:#071b30;color:white;
-  padding:11px 16px;border-radius:10px;font-weight:800;
-  font-family:inherit;cursor:pointer;text-decoration:none;
+  font-family:Montserrat,sans-serif;
+  font-weight:900;
+  color:#fff;
+  cursor:pointer;
+  border:3px solid var(--black);
+  border-radius:5px;
+  padding:11px 16px;
+  background:linear-gradient(180deg,#168bff,#0056c9);
+  box-shadow:0 4px 0 #002d68,0 0 12px #00b7ff35;
+  text-shadow:1px 2px 0 #000;
+  transition:.15s;
 }
-button:hover,.button:hover{background:var(--blue);color:#00111d}
-main{max-width:1250px;margin:auto;padding:35px 20px}
-.hero{text-align:center;padding:40px 10px}
-.hero h1{font-size:clamp(30px,6vw,55px);margin:0 0 12px;font-weight:900}
-.hero h1 span{color:var(--cyan);text-shadow:0 0 25px #00b7ff88}
-.hero p{color:var(--muted);line-height:1.7}
+
+button:hover,.button:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.2);
+}
+
+button:active{transform:translateY(2px);box-shadow:none}
+
+/* CONTENIDO */
+main{
+  max-width:1250px;
+  margin:auto;
+  padding:30px 20px;
+}
+
+.hero{
+  text-align:center;
+  padding:40px 15px;
+  margin-bottom:30px;
+  border:4px solid var(--black);
+  border-radius:8px;
+  background-color:#15152b;
+  background-image:
+    radial-gradient(circle at 5px 5px,#42405c 1.8px,transparent 2.5px),
+    linear-gradient(135deg,#17172e,#10182c);
+  background-size:12px 12px,auto;
+  box-shadow:0 5px 0 var(--blue),0 12px 30px #0008;
+}
+
+.hero h1{
+  font-size:clamp(30px,6vw,55px);
+  font-weight:900;
+  margin:0 0 12px;
+  letter-spacing:-2px;
+  color:#fff;
+  -webkit-text-stroke:1px #000;
+  text-shadow:
+    3px 3px 0 #000,
+    5px 5px 0 #003d75,
+    0 0 20px #00b7ff;
+}
+
+.hero h1 span{color:var(--cyan)}
+
+.hero p{
+  color:#e0e6ff;
+  font-weight:700;
+  text-shadow:1px 2px #000;
+  line-height:1.7;
+}
+
 .searchbar{
-  width:min(650px,100%);margin:25px auto;display:flex;gap:10px;
+  width:min(650px,100%);
+  margin:25px auto 0;
 }
+
 input,select{
-  background:#0b1728;color:white;border:1px solid var(--border);
-  border-radius:10px;padding:14px;font-family:inherit;outline:none;width:100%;
+  width:100%;
+  padding:14px;
+  border:3px solid #05050b;
+  border-radius:5px;
+  background:#252440;
+  color:white;
+  font-family:Montserrat,sans-serif;
+  font-weight:700;
+  outline:none;
+  box-shadow:inset 0 3px 5px #0008;
 }
-input:focus,select:focus{border-color:var(--cyan)}
-.section-title{font-size:21px;font-weight:900;margin:35px 0 17px}
-.categories{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:25px}
-.category.active{background:var(--blue);color:#00111d}
+
+input:focus,select:focus{
+  border-color:var(--cyan);
+  box-shadow:0 0 12px #00b7ff70;
+}
+
+input::placeholder{color:#aaa8c7}
+
+/* TITULOS */
+.section-title{
+  display:block;
+  width:fit-content;
+  max-width:100%;
+  padding:10px 18px;
+  margin:35px 0 20px;
+  font-size:19px;
+  font-weight:900;
+  color:#fff;
+  background:linear-gradient(90deg,#006bc9,#123e91);
+  border:3px solid #05050b;
+  border-radius:4px;
+  box-shadow:0 4px 0 #001d49,0 0 12px #00b7ff50;
+  text-shadow:2px 2px #000;
+}
+
+/* CATEGORIAS */
+.categories{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.category{
+  background:#24213f;
+  border-color:#05050b;
+}
+
+.category.active{
+  background:linear-gradient(180deg,#7dff29,#36b900);
+  color:#071300;
+  text-shadow:none;
+  box-shadow:0 4px 0 #176400;
+}
+
+/* JUEGOS */
 .games{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:14px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:15px;
 }
+
 .game{
-  background:var(--panel);border:1px solid var(--border);
-  border-radius:14px;overflow:hidden;cursor:pointer;transition:.2s;
+  overflow:hidden;
+  cursor:pointer;
+  background:#19182f;
+  border:4px solid #05050b;
+  border-radius:5px;
+  box-shadow:0 4px 0 #003b75,0 0 12px #00b7ff25;
+  transition:.2s;
 }
-.game:hover{transform:translateY(-4px);border-color:var(--cyan)}
-.game img{width:100%;height:100px;object-fit:cover;display:block}
-.game div{padding:12px;font-size:12px;font-weight:800;text-align:center}
+
+.game:hover{
+  transform:translateY(-4px);
+  border-color:var(--blue);
+}
+
+.game img{
+  width:100%;
+  height:110px;
+  display:block;
+  object-fit:cover;
+}
+
+.game .game-icon{
+  height:110px;
+  display:grid;
+  place-items:center;
+  font-size:42px;
+  background-color:#1b1a35;
+  background-image:radial-gradient(circle,#45415f 1.5px,transparent 2px);
+  background-size:10px 10px;
+}
+
+.game div:last-child{
+  padding:12px 7px;
+  text-align:center;
+  font-size:12px;
+  font-weight:900;
+  text-shadow:2px 2px #000;
+}
+
+/* SONIDOS */
 .sounds{
-  display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:15px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:17px;
 }
+
 .sound{
-  background:linear-gradient(145deg,#101d33,#09111e);
-  border:1px solid var(--border);border-radius:15px;padding:17px;
+  position:relative;
+  overflow:hidden;
+  padding:17px;
+  background-color:#19182f;
+  background-image:
+    radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
+  background-size:11px 11px;
+  border:4px solid #05050b;
+  border-radius:5px;
+  box-shadow:0 4px 0 #004b91,0 0 14px #00b7ff20;
 }
-.sound h3{margin:0 0 8px;font-size:15px}
-.sound small{color:var(--muted)}
-.sound audio{width:100%;margin-top:14px}
-.sound-actions{display:flex;justify-content:space-between;gap:10px;margin-top:12px}
-.sound-actions a{color:var(--cyan);font-size:12px;text-decoration:none;font-weight:800}
+
+.sound h3{
+  margin:0 0 9px;
+  font-size:15px;
+  font-weight:900;
+  text-shadow:2px 2px #000;
+  overflow-wrap:anywhere;
+}
+
+.sound small{
+  display:inline-block;
+  color:var(--cyan);
+  font-weight:800;
+  text-shadow:1px 1px #000;
+}
+
+.sound audio{
+  width:100%;
+  margin-top:15px;
+  height:38px;
+}
+
+.sound-actions{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-top:13px;
+}
+
+.sound-actions a{
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:900;
+  text-decoration:none;
+}
+
+.sound-actions a:hover{color:var(--green)}
+
+/* SUBIDAS */
 .upload-box{
-  background:var(--panel);border:1px solid var(--blue);
-  box-shadow:0 0 25px #00b7ff16;border-radius:18px;padding:25px;
+  position:relative;
   margin-top:45px;
+  padding:25px;
+  background-color:#19182f;
+  background-image:
+    radial-gradient(circle at 5px 5px,#34324f 1.5px,transparent 2px);
+  background-size:11px 11px;
+  border:4px solid #05050b;
+  border-radius:6px;
+  box-shadow:0 5px 0 var(--blue),0 0 25px #00b7ff25;
 }
-.upload-box h2{margin-top:0}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+.upload-box h2{
+  margin-top:0;
+  font-weight:900;
+  text-shadow:2px 2px #000;
+}
+
+.upload-box p{
+  color:var(--muted);
+  font-weight:600;
+}
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:13px;
+}
+
 .form-grid .full{grid-column:1/-1}
-#status{color:var(--cyan);font-size:13px;margin-top:15px}
-.empty{color:var(--muted);text-align:center;padding:35px}
-footer{text-align:center;padding:30px;color:var(--muted);font-size:12px}
+
+.form-grid button{
+  background:linear-gradient(180deg,#8aff30,#38c500);
+  color:#071300;
+  text-shadow:1px 1px #baff91;
+  box-shadow:0 4px 0 #176400;
+  font-size:14px;
+}
+
+#status{
+  color:var(--cyan);
+  font-size:13px;
+  font-weight:800;
+  margin-top:16px;
+  overflow-wrap:anywhere;
+  text-shadow:1px 1px #000;
+}
+
+.empty{
+  color:#c2bfdc;
+  text-align:center;
+  padding:35px;
+  font-weight:700;
+  background:#15142a;
+  border:3px solid #05050b;
+  border-radius:5px;
+}
+
+footer{
+  text-align:center;
+  padding:30px;
+  color:#aaa8c7;
+  font-size:12px;
+  font-weight:700;
+  text-shadow:1px 1px #000;
+}
+
 @media(max-width:600px){
   header{justify-content:center}
   .form-grid{grid-template-columns:1fr}
   .form-grid .full{grid-column:auto}
+  .hero{padding:30px 12px}
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <div class="logo">NEON <span>SOUND MARKET</span></div>
   <nav>
-    <button onclick="document.getElementById('library').scrollIntoView()">Biblioteca</button>
-    <button onclick="document.getElementById('upload').scrollIntoView()">Subir sonido</button>
+    <button onclick="document.getElementById('library').scrollIntoView({behavior:'smooth'})">BIBLIOTECA</button>
+    <button onclick="document.getElementById('upload').scrollIntoView({behavior:'smooth'})">SUBIR SONIDO</button>
   </nav>
 </header>
 
 <main>
-  <section class="hero">
-    <h1>NEON <span>SOUND MARKET</span></h1>
-    <p>Descubre, escucha y comparte sonidos de tus juegos favoritos de Roblox.</p>
-    <div class="searchbar">
-      <input id="search" placeholder="Buscar sonidos..." oninput="renderSounds()">
-    </div>
-  </section>
 
-  <h2 class="section-title">JUEGOS</h2>
-  <div class="games" id="games"></div>
+<section class="hero">
+  <h1>NEON <span>SOUND MARKET</span></h1>
+  <p>DESCUBRE · ESCUCHA · COMPARTE SONIDOS DE ROBLOX</p>
+  <div class="searchbar">
+    <input id="search" placeholder="Buscar sonidos..." oninput="renderSounds()">
+  </div>
+</section>
 
-  <section id="library">
-    <h2 class="section-title">BIBLIOTECA DE SONIDOS</h2>
-    <div class="categories" id="categories"></div>
-    <div class="sounds" id="sounds">
-      <div class="empty">Cargando biblioteca...</div>
-    </div>
-  </section>
+<h2 class="section-title">🎮 JUEGOS</h2>
+<div class="games" id="games"></div>
 
-  <section class="upload-box" id="upload">
-    <h2>⬆ SUBIR UN SONIDO</h2>
-    <p style="color:var(--muted)">Comparte tus sonidos con toda la comunidad.</p>
+<section id="library">
+  <h2 class="section-title">🎵 BIBLIOTECA DE SONIDOS</h2>
+  <div class="categories" id="categories"></div>
+  <div class="sounds" id="sounds">
+    <div class="empty">Cargando biblioteca...</div>
+  </div>
+</section>
 
-    <div class="form-grid">
-      <input id="soundName" placeholder="Nombre del sonido">
-      <select id="gameSelect">
-        <option>Steal an Egg</option>
-        <option>Steal a Brainrot</option>
-        <option>Murder Mystery 2</option>
-        <option>Brookhaven</option>
-        <option>Adopt Me!</option>
-        <option>Blox Fruits</option>
-        <option>Otros juegos</option>
-      </select>
-      <select id="rarity">
-        <option>Normal</option>
-        <option>Rare</option>
-        <option>Epic</option>
-        <option>Legendary</option>
-        <option>Secret</option>
-        <option>Eternal</option>
-        <option>Divino</option>
-      </select>
-      <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*">
-      <button class="full" onclick="uploadSound()">PUBLICAR SONIDO</button>
-    </div>
-    <div id="status"></div>
-  </section>
+<section class="upload-box" id="upload">
+  <h2>⬆ SUBIR UN SONIDO</h2>
+  <p>COMPARTE TUS SONIDOS CON TODA LA COMUNIDAD.</p>
+
+  <div class="form-grid">
+    <input id="soundName" placeholder="Nombre del sonido">
+
+    <select id="gameSelect">
+      <option>Steal an Egg</option>
+      <option>Steal a Brainrot</option>
+      <option>Murder Mystery 2</option>
+      <option>Brookhaven</option>
+      <option>Adopt Me!</option>
+      <option>Blox Fruits</option>
+      <option>Otros juegos</option>
+    </select>
+
+    <select id="rarity">
+      <option>Normal</option>
+      <option>Rare</option>
+      <option>Epic</option>
+      <option>Legendary</option>
+      <option>Secret</option>
+      <option>Eternal</option>
+      <option>Divino</option>
+    </select>
+
+    <input id="soundFile" type="file" accept=".mp3,.wav,.ogg,.m4a,audio/*">
+
+    <button class="full" onclick="uploadSound()">PUBLICAR SONIDO</button>
+  </div>
+
+  <div id="status"></div>
+</section>
+
 </main>
 
-<footer>NEON SOUND MARKET · Biblioteca comunitaria de sonidos</footer>
+<footer>
+  NEON SOUND MARKET · ROBLOX SOUND COMMUNITY
+</footer>
 
 <script>
 const SUPABASE_URL = "https://wcvqpdkgysfavulgtqru.supabase.co";
@@ -163,17 +461,17 @@ const SUPABASE_KEY = "sb_publishable_ynKq7LSvepCoGFPhddz3Fg_9lOb2ZrL";
 const BUCKET = "neon-sounds";
 
 const games = [
-  {name:"Steal an Egg",id:0,emoji:"🥚"},
-  {name:"Steal a Brainrot",id:0,emoji:"🧠"},
-  {name:"Murder Mystery 2",id:142823291,id2:0,emoji:"🔪"},
-  {name:"Brookhaven",id:0,emoji:"🏡"},
-  {name:"Adopt Me!",id:0,emoji:"🐶"},
-  {name:"Blox Fruits",id:0,emoji:"🍎"},
-  {name:"Otros juegos",id:0,emoji:"🎮"}
+  {name:"Steal an Egg",emoji:"🥚"},
+  {name:"Steal a Brainrot",emoji:"🧠"},
+  {name:"Murder Mystery 2",emoji:"🔪"},
+  {name:"Brookhaven",emoji:"🏡"},
+  {name:"Adopt Me!",emoji:"🐶"},
+  {name:"Blox Fruits",emoji:"🍎"},
+  {name:"Otros juegos",emoji:"🎮"}
 ];
 
-let allSounds = [];
-let selectedGame = "Todos";
+let allSounds=[];
+let selectedGame="Todos";
 
 function headers(){
   return {
@@ -186,24 +484,39 @@ function showStatus(message){
   document.getElementById("status").textContent=message;
 }
 
+function textSlug(text){
+  return text.normalize("NFD")
+    .replace(/[\u0300-\u036f]/g,"")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g,"-")
+    .replace(/^-|-$/g,"")
+    .slice(0,50);
+}
+
 function renderGames(){
   const root=document.getElementById("games");
   root.innerHTML="";
+
   games.forEach(game=>{
     const card=document.createElement("div");
     card.className="game";
-    const image=document.createElement("div");
-    image.style.cssText="height:100px;display:grid;place-items:center;font-size:38px;background:#102b48";
-    image.textContent=game.emoji;
+
+    const icon=document.createElement("div");
+    icon.className="game-icon";
+    icon.textContent=game.emoji;
+
     const name=document.createElement("div");
     name.textContent=game.name;
-    card.append(image,name);
+
+    card.append(icon,name);
+
     card.onclick=()=>{
       selectedGame=game.name;
       renderCategories();
       renderSounds();
-      document.getElementById("library").scrollIntoView();
+      document.getElementById("library").scrollIntoView({behavior:"smooth"});
     };
+
     root.appendChild(card);
   });
 }
@@ -211,25 +524,35 @@ function renderGames(){
 function renderCategories(){
   const root=document.getElementById("categories");
   root.innerHTML="";
+
   ["Todos",...games.map(g=>g.name)].forEach(name=>{
     const button=document.createElement("button");
     button.className="category"+(selectedGame===name?" active":"");
     button.textContent=name;
+
     button.onclick=()=>{
       selectedGame=name;
       renderCategories();
       renderSounds();
     };
+
     root.appendChild(button);
   });
 }
 
 function parseFileName(name){
   const parts=name.split("--");
+
   return {
-    game:parts.length>=3?parts[0].replace(/-/g," "):"Otros juegos",
-    rarity:parts.length>=3?parts[1]:"Normal",
-    title:parts.length>=3?parts.slice(2).join("--") : name
+    game:parts.length>=3
+      ?parts[0].replace(/-/g," ")
+      :"Otros juegos",
+    rarity:parts.length>=3
+      ?parts[1]
+      :"Normal",
+    title:parts.length>=3
+      ?parts.slice(2).join("--")
+      :name
   };
 }
 
@@ -239,25 +562,44 @@ async function loadSounds(){
       `${SUPABASE_URL}/storage/v1/object/list/${BUCKET}`,
       {
         method:"POST",
-        headers:{...headers(),"Content-Type":"application/json"},
-        body:JSON.stringify({prefix:"",limit:500,offset:0,sortBy:{column:"created_at",order:"desc"}})
+        headers:{
+          ...headers(),
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          prefix:"",
+          limit:500,
+          offset:0,
+          sortBy:{column:"created_at",order:"desc"}
+        })
       }
     );
-    if(!response.ok) throw new Error("No se pudo leer el bucket ("+response.status+")");
+
+    if(!response.ok){
+      throw new Error("No se pudo leer el bucket ("+response.status+")");
+    }
+
     const files=await response.json();
-    allSounds=files.filter(f=>f.name && !f.name.startsWith(".")).map(f=>{
-      const meta=parseFileName(f.name);
-      return {
-        ...meta,
-        file:f.name,
-        url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${f.name}`,
-        date:f.created_at || f.updated_at || ""
-      };
-    });
+
+    allSounds=files
+      .filter(f=>f.name&&!f.name.startsWith("."))
+      .map(f=>{
+        const meta=parseFileName(f.name);
+
+        return {
+          ...meta,
+          file:f.name,
+          url:`${SUPABASE_URL}/storage/v1/object/public/${BUCKET}/${f.name.split("/").map(encodeURIComponent).join("/")}`,
+          date:f.created_at||f.updated_at||""
+        };
+      });
+
     renderSounds();
+
   }catch(error){
     document.getElementById("sounds").innerHTML=
-      '<div class="empty">No se pudo cargar la biblioteca. Revisa la configuración pública de Supabase.</div>';
+      '<div class="empty">No se pudo cargar la biblioteca. Comprueba las políticas SELECT de Supabase.</div>';
+
     console.error(error);
   }
 }
@@ -265,16 +607,21 @@ async function loadSounds(){
 function renderSounds(){
   const root=document.getElementById("sounds");
   const query=document.getElementById("search").value.toLowerCase().trim();
-  const filtered=allSounds.filter(s=>
-    (selectedGame==="Todos" || s.game.toLowerCase()===selectedGame.toLowerCase()) &&
-    (s.title.toLowerCase().includes(query) ||
-     s.game.toLowerCase().includes(query) ||
-     s.rarity.toLowerCase().includes(query))
+
+  const filtered=allSounds.filter(sound=>
+    (selectedGame==="Todos"||
+      sound.game.toLowerCase()===selectedGame.toLowerCase())&&
+    (
+      sound.title.toLowerCase().includes(query)||
+      sound.game.toLowerCase().includes(query)||
+      sound.rarity.toLowerCase().includes(query)
+    )
   );
 
   root.innerHTML="";
+
   if(!filtered.length){
-    root.innerHTML='<div class="empty">Todavía no hay sonidos en esta categoría.</div>';
+    root.innerHTML='<div class="empty">TODAVÍA NO HAY SONIDOS EN ESTA CATEGORÍA.</div>';
     return;
   }
 
@@ -295,12 +642,13 @@ function renderSounds(){
 
     const actions=document.createElement("div");
     actions.className="sound-actions";
+
     const download=document.createElement("a");
     download.href=sound.url;
     download.download=sound.file;
-    download.textContent="DESCARGAR";
-    actions.appendChild(download);
+    download.textContent="⬇ DESCARGAR";
 
+    actions.appendChild(download);
     card.append(title,info,audio,actions);
     root.appendChild(card);
   });
@@ -312,65 +660,71 @@ async function uploadSound(){
   const rarity=document.getElementById("rarity").value;
   const file=document.getElementById("soundFile").files[0];
 
-  if(SUPABASE_KEY==="PEGA_TU_CLAVE_PUBLICABLE"){
-    showStatus("Primero coloca tu clave Publishable en el código.");
-    return;
-  }
-  if(!name || !file){
+  if(!name||!file){
     showStatus("Escribe un nombre y selecciona un archivo.");
     return;
   }
-  const allowed=["audio/mpeg","audio/wav","audio/ogg","audio/mp4","audio/x-m4a"];
+
   const extension=file.name.split(".").pop().toLowerCase();
-  if(!["mp3","wav","ogg","m4a"].includes(extension) ||
-     (file.type && !allowed.includes(file.type))){
+  const allowed=["mp3","wav","ogg","m4a"];
+
+  if(!allowed.includes(extension)){
     showStatus("Formato no permitido. Usa MP3, WAV, OGG o M4A.");
     return;
   }
+
   if(file.size>15*1024*1024){
     showStatus("El archivo supera el límite de 15 MB.");
     return;
   }
 
-  const slug=textSlug(name);
-  const gameSlug=textSlug(game);
-  const fileName=`${gameSlug}--${rarity.toLowerCase()}--${slug}-${crypto.randomUUID()}.${extension}`;
+  const mimeTypes={
+    mp3:"audio/mpeg",
+    wav:"audio/wav",
+    ogg:"audio/ogg",
+    m4a:"audio/mp4"
+  };
 
-  showStatus("Subiendo sonido...");
+  const fileName=
+    `${textSlug(game)}--${rarity.toLowerCase()}--${textSlug(name)}-${crypto.randomUUID()}.${extension}`;
+
+  showStatus("SUBIENDO SONIDO...");
+
   try{
     const response=await fetch(
-      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${encodeURIComponent(fileName)}`,
+      `${SUPABASE_URL}/storage/v1/object/${BUCKET}/${fileName.split("/").map(encodeURIComponent).join("/")}`,
       {
         method:"POST",
         headers:{
           ...headers(),
-          "Content-Type":file.type || "application/octet-stream",
+          "Content-Type":mimeTypes[extension],
           "x-upsert":"false"
         },
         body:file
       }
     );
+
     if(!response.ok){
       const detail=await response.text();
-      throw new Error(detail || "Error "+response.status);
+      throw new Error(detail||"Error "+response.status);
     }
-    showStatus("¡Sonido publicado correctamente!");
+
+    showStatus("¡SONIDO PUBLICADO CORRECTAMENTE!");
+
     document.getElementById("soundName").value="";
     document.getElementById("soundFile").value="";
-    await loadSounds();
-  }catch(error){
-    showStatus("Error al subir: "+error.message);
-  }
-}
 
-function textSlug(text){
-  return text.normalize("NFD").replace(/[\u0300-\u036f]/g,"")
-    .toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"").slice(0,50);
+    await loadSounds();
+
+  }catch(error){
+    showStatus("ERROR AL SUBIR: "+error.message);
+  }
 }
 
 renderGames();
 renderCategories();
 loadSounds();
 </script>
+
 </body>
 </html>
